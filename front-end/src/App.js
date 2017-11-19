@@ -12,10 +12,9 @@ class App extends Component {
       }
 
   componentDidMount() {
-    const url = `https://localhost:3001/categories`;
+    const url = `http://localhost:3001/categories`;
     console.log('fetching from url', url);
-    fetch(url, { headers: { 'Authorization': 'whatever-you-want' },
-                  credentials: 'include' })
+    fetch(url, { headers: { 'Authorization': 'whatever-you-want' } })
       .then( (res) => { return(res.text()) })
       .then((data) => {
         this.setState({backend:data});
