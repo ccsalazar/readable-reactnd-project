@@ -1,0 +1,14 @@
+.sort{
+  &-menu {
+    font-size: 2rem;
+    color:$color-grey-light;
+    background-color: transparent;
+    border:none;
+    outline:none;
+
+    &:hover{
+    color:$color-white;
+    }
+    
+  }
+}

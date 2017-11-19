@@ -1,0 +1,65 @@
+.post-card {
+  margin:1rem auto;
+  width:$page-content-width;
+  padding:1rem;
+  border-radius: .5rem;
+  background-color: #2e2d2b;
+  color:$color-white;
+
+  &__category {
+    border-bottom: 1px solid $color-grey-light;
+  }
+
+  &__details {
+   margin: 1rem 0;
+   width: 100%;
+   @include clearfix;
+  }
+
+  &__user {
+    display:inline-block;
+    float:left;
+  }
+
+  &__user-log {
+    display:inline-block;
+    float:right;
+  }
+
+  &__timestamp {
+    color:$color-grey-light;
+    font-size: 1.2rem;
+  }
+
+  &__controls {
+    display: inline-block;
+    float:right;
+    height:4.7rem;
+  }
+
+  &__title {
+    margin-bottom:1rem;
+    font-size:2rem;
+    color:$color-primary-orange;
+  }
+
+  &__body {
+    margin-bottom: 1rem;
+  }
+
+  &__popularity{
+    width:100%;
+    @include clearfix;
+  }
+
+  &__votes {
+    display:inline-block;
+    color:$color-grey-light;
+    float:left;
+  }
+
+  &__comments {
+    display:inline-block;
+    float:right;
+  }
+}

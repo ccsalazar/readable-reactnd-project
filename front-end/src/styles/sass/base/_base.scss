@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //defines what 1rem is
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: $color-black-background;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color:$color-grey-light;
+  &:hover {
+    color:$color-primary-orange;
+  }
+}

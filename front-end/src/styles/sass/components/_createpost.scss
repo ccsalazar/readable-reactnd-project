@@ -1,0 +1,26 @@
+.form-container {
+  padding:1rem;
+  margin: 0 3rem;
+  width: 40%;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+  @include clearfix;
+}
+
+.form-field {
+  display:inline-block;
+  float:left;
+  margin-right: 1rem;
+}
+
+.form-input {
+  display: inline-block;
+  float:right;
+}
+
+.select-category {
+  display: inline-block;
+  float:right;
+}

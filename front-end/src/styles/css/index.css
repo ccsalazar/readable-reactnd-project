@@ -1,0 +1,173 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  background-color: #222; }
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #777777; }
+  a:hover {
+    color: #ff5252; }
+
+.icon-clickable {
+  cursor: pointer;
+  transition: all .2s; }
+  .icon-clickable:hover {
+    color: #ff5252; }
+
+.MdAccountCircle {
+  font-size: 4.7rem;
+  display: inline-block;
+  float: left;
+  margin-right: .5rem; }
+
+.MdMoreVert {
+  font-size: 2.4rem; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #fff; }
+
+.header-title {
+  letter-spacing: .6rem;
+  font-weight: 600; }
+
+.btn {
+  margin-top: 1rem;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  background-color: dodgerblue;
+  width: 15rem;
+  text-align: center;
+  border-radius: .8rem;
+  float: right;
+  transition: all .2s; }
+  .btn:hover {
+    color: #000; }
+
+.post-card {
+  margin: 1rem auto;
+  width: 95%;
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: #2e2d2b;
+  color: #fff; }
+  .post-card__category {
+    border-bottom: 1px solid #777777; }
+  .post-card__details {
+    margin: 1rem 0;
+    width: 100%;
+    content: "";
+    display: table;
+    clear: both; }
+  .post-card__user {
+    display: inline-block;
+    float: left; }
+  .post-card__user-log {
+    display: inline-block;
+    float: right; }
+  .post-card__timestamp {
+    color: #777777;
+    font-size: 1.2rem; }
+  .post-card__controls {
+    display: inline-block;
+    float: right;
+    height: 4.7rem; }
+  .post-card__title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #ff5252; }
+  .post-card__body {
+    margin-bottom: 1rem; }
+  .post-card__popularity {
+    width: 100%;
+    content: "";
+    display: table;
+    clear: both; }
+  .post-card__votes {
+    display: inline-block;
+    color: #777777;
+    float: left; }
+  .post-card__comments {
+    display: inline-block;
+    float: right; }
+
+.category-tabs {
+  margin: 1rem auto;
+  width: 95%;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 4rem;
+  content: "";
+  display: table;
+  clear: both; }
+
+.category {
+  width: 20%;
+  text-align: center;
+  border-bottom: .3rem solid transparent;
+  transition: all .2s;
+  color: #777777;
+  display: inline-block; }
+
+.category:hover {
+  border-bottom: 0.3rem solid dodgerblue;
+  color: #fff; }
+
+.form-container {
+  padding: 1rem;
+  margin: 0 3rem;
+  width: 40%; }
+
+.form-row {
+  margin-bottom: 1rem;
+  content: "";
+  display: table;
+  clear: both; }
+
+.form-field {
+  display: inline-block;
+  float: left;
+  margin-right: 1rem; }
+
+.form-input {
+  display: inline-block;
+  float: right; }
+
+.select-category {
+  display: inline-block;
+  float: right; }
+
+.sort-menu {
+  font-size: 2rem;
+  color: #777777;
+  background-color: transparent;
+  border: none;
+  outline: none; }
+  .sort-menu:hover {
+    color: #fff; }
+
+.header {
+  height: 6.4rem;
+  text-align: center;
+  border-bottom: 1px solid #777777; }
+
+.default-post {
+  margin: 0 3rem; }
+
+.post-details {
+  margin: 0 3rem; }
