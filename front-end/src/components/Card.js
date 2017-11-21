@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {MdAccountCircle,MdMoreVert} from 'react-icons/lib/md'
 import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
 
@@ -47,7 +48,9 @@ const Card = (props) => {
           <span className="TiThumbsDown icon-clickable"> <TiThumbsDown/></span>
         </div>
         <div className="post-card__comments">
-          <a href="#">{props.commentCount} Comments</a>
+          <Link to={`/posts/${props.id}/comments`}>
+          {props.commentCount} Comments
+          </Link>
         </div>
       </div>
     </div>

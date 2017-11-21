@@ -10,13 +10,12 @@ class App extends Component {
 
 
   render() {
-
     return (
       <div className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={DefaultPost}/>
-          <Route path="/details" component={PostDetails}/>
+          <Route path="/posts/:id/comments" component={PostDetails}/>
           <Route path="/create" component={CreatePost}/>
         </Switch>
       </div>

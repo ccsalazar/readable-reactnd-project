@@ -1,10 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {MdAccountCircle,MdMoreVert} from 'react-icons/lib/md';
 import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
 
 
-class CommentCard extends Component {
-  render(){
+const CommentCard = (props) => {
+
+  let timeStamp = new Date(props.timestamp);
+  let dateString = timeStamp.toDateString();
+  let hours = timeStamp.getHours();
+  let minutes =timeStamp.getMinutes();
+  let meridiem = hours<12?'AM':'PM';
+  hours = hours===0?hours+=12:hours;
+  hours = hours>12?hours-=12:hours;
+  minutes = ('0'+minutes).slice(-2);
+
     return(
       <div className="post-card">
         <div className="post-card__details">
@@ -12,10 +21,10 @@ class CommentCard extends Component {
             <MdAccountCircle className="MdAccountCircle"/>
             <div className="post-card__user-log">
               <div className="post-card__author">
-                John Smith
+                {props.author}
               </div>
               <div className="post-card__timestamp">
-                Nov 15, 2017
+                <span>{hours}:{minutes} {meridiem} on {dateString}</span>
               </div>
             </div>
           </div>
@@ -24,11 +33,17 @@ class CommentCard extends Component {
           </div>
         </div>
         <div className="post-card__body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quis, facere consequatur earum, at aut! Sed fugit, aspernatur voluptates ipsa molestias sit. Provident temporibus cupiditate, illo sequi est modi architecto!</p>
+          {props.body}
+        </div>
+        <div className="post-card__popularity">
+          <div className="post-card__votes">
+            <span className="TiThumbsUp icon-clickable"><TiThumbsUp/> </span>
+            {props.voteScore}
+            <span className="TiThumbsDown icon-clickable"> <TiThumbsDown/></span>
+          </div>
         </div>
       </div>
     );
-  }
 }
 
 export default CommentCard;
