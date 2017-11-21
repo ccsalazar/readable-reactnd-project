@@ -8,6 +8,7 @@ const Card = (props) => {
   let dateString = timeStamp.toDateString();
   let hours = timeStamp.getHours();
   let minutes =timeStamp.getMinutes();
+  let meridiem = hours<12?'AM':'PM';
   hours = hours===0?hours+=12:hours;
   hours = hours>12?hours-=12:hours;
   minutes = ('0'+minutes).slice(-2);
@@ -25,7 +26,7 @@ const Card = (props) => {
               {props.author}
             </div>
             <div className="post-card__timestamp">
-              {hours}:{minutes} on {dateString}
+              <span>{hours}:{minutes} {meridiem} on {dateString}</span>
             </div>
           </div>
         </div>
