@@ -7,22 +7,10 @@ import CreatePost from './components/CreatePost';
 
 
 class App extends Component {
-  state = {
-        backend: 'backend-data'
-      }
 
-  componentDidMount() {
-    const url = `http://localhost:3001/categories`;
-    console.log('fetching from url', url);
-    fetch(url, { headers: { 'Authorization': 'whatever-you-want' } })
-      .then( (res) => { return(res.text()) })
-      .then((data) => {
-        this.setState({backend:data});
-      });
-  }
 
   render() {
-    console.log(this.state);
+
     return (
       <div className="App">
         <Header />

@@ -2,21 +2,24 @@ import React from 'react';
 import {MdAccountCircle,MdMoreVert} from 'react-icons/lib/md'
 import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
 
-const Card = () => {
+const Card = (props) => {
+
+  let timeStamp = new Date(props.timestamp).toDateString();
+
   return (
     <div className="post-card">
       <div className="post-card__category">
-        React
+        {props.category}
       </div>
       <div className="post-card__details">
         <div className="post-card__user">
           <MdAccountCircle className="MdAccountCircle"/>
           <div className="post-card__user-log">
             <div className="post-card__author">
-              John Smith
+              {props.author}
             </div>
             <div className="post-card__timestamp">
-              Nov 15, 2017
+              {timeStamp}
             </div>
           </div>
         </div>
@@ -25,19 +28,19 @@ const Card = () => {
         </div>
       </div>
       <div className="post-card__title">
-        Post Title
+        {props.title}
       </div>
       <div className="post-card__body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quis, facere consequatur earum, at aut! Sed fugit, aspernatur voluptates ipsa molestias sit. Provident temporibus cupiditate, illo sequi est modi architecto!</p>
+        {props.body}
       </div>
       <div className="post-card__popularity">
         <div className="post-card__votes">
           <span className="TiThumbsUp icon-clickable"><TiThumbsUp/> </span>
-          1.2K
+          {props.voteScore}
           <span className="TiThumbsDown icon-clickable"> <TiThumbsDown/></span>
         </div>
         <div className="post-card__comments">
-          <a href="#">3 Comments</a>
+          <a href="#">{props.commentCount} Comments</a>
         </div>
       </div>
     </div>

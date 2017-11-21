@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import Sort from './Sort';
+import SortSelect from './SortSelect';
 
 class CategoryTabs extends Component {
   render(){
@@ -18,7 +18,7 @@ class CategoryTabs extends Component {
             Udacity
           </div>
           <div className="category">
-            <Sort />
+            <SortSelect />
           </div>
         </div>
     );

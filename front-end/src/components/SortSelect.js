@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-class Sort extends Component {
+class SortSelect extends Component {
   render(){
     return(
       <div className="sort">
@@ -14,4 +14,4 @@ class Sort extends Component {
   }
 }
 
-export default Sort;
+export default SortSelect;
