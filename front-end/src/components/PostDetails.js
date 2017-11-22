@@ -24,6 +24,7 @@ state ={
       });
   }
   render(){
+    console.log('post id:',this.props.match.params.id);
     const {posts} = this.state;
     return(
       <div className="post-details">
@@ -50,5 +51,6 @@ state ={
     );
   }
 }
+
 
 export default PostDetails;

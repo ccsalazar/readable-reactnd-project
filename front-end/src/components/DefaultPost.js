@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import CategoryTabs from './CategoryTabs';
 import Card from './Card';
+import { connect } from 'react-redux';
 
 class DefaultPost extends Component {
 
-  state ={
-    posts:[]
-  }
 
   componentDidMount() {
-    const url = `http://localhost:3001/posts`;
-    fetch(url, { headers: { 'Authorization': 'whatever-you-want' } })
-      .then( (res) => { return(res.json()) })
-      .then((data) => {
-        this.setState({posts:data});
-      });
+
   }
 
   render(){
+    console.log('State to Props:',this.props)
+    const {posts}=this.props;
     return(
       <section className="default-post">
         <div className="btn">
@@ -25,7 +20,7 @@ class DefaultPost extends Component {
         </div>
         <CategoryTabs />
         {
-          this.state.posts.map((post,index)=>(
+          posts.map((post,index)=>(
           <Card
             key={index}
             id={post.id}
@@ -44,4 +39,10 @@ class DefaultPost extends Component {
 
 }
 
-export default DefaultPost;
+function mapStateToProps({posts}){
+  return {
+    posts
+  };
+}
+
+export default connect(mapStateToProps)(DefaultPost);
