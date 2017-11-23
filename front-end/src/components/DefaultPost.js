@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import CategoryTabs from './CategoryTabs';
-// import Card from './Card';
+import Card from './Card';
 import { connect } from 'react-redux';
 
 class DefaultPost extends Component {
 
-  componentDidMount() {
-
-  }
-
   render(){
     const {posts}=this.props;
+    console.log('Default:',this.props.posts)
     return(
       <section className="default-post">
         <div className="btn">
           Create New Post
         </div>
         <CategoryTabs />
-        {/* {
+        {
           posts.map((post,index)=>(
           <Card
             key={index}
@@ -30,16 +27,16 @@ class DefaultPost extends Component {
             voteScore={post.voteScore}
             commentCount={post.commentCount}
           />
-        ))} */}
+        ))}
       </section>
     );
   }
 
 }
 
-function mapStateToProps({posts}){
+const mapStateToProps = ({posts}) => {
   return {
-    ...posts
+    posts
   };
 }
 

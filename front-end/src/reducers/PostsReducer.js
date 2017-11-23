@@ -3,19 +3,19 @@ import{
 } from '../actions'
 
 
-const postsReducerDefaultState = [];
+// const postsReducerDefaultState = {};
 
-export default (state=postsReducerDefaultState,action)=>{
+export default (state={},action)=>{
 
   switch(action.type){
     case GET_POSTS:
       const {posts}=action
-      return {
+      return [
         ...state,
-        posts
-      }
+        ...posts
+      ]
   default:
-    return state
+    return [...state]
   }
 };
 //
