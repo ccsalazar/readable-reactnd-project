@@ -11,35 +11,44 @@ class PostDetails extends Component {
     this.props.getComments(postID);
   }
   render(){
+
+    const {post,comments}=this.props;
     return(
+
       <div className="post-details">
-          {/* <Card
-            id={posts.id}
-            timestamp={posts.timestamp}
-            title={posts.title}
-            body={posts.body}
-            author={posts.author}
-            category={posts.category}
-            voteScore={posts.voteScore}
-            commentCount={posts.commentCount}
-          /> */}
         {
-          this.props.comments.map((comment,index)=>
+          post!== undefined &&
+            <Card
+            id={post.id}
+            timestamp={post.timestamp}
+            title={post.title}
+            body={post.body}
+            author={post.author}
+            category={post.category}
+            voteScore={post.voteScore}
+            commentCount={post.commentCount}
+          />
+        }
+        {
+          comments!== undefined &&
+          comments.map((comment,index)=>
           <CommentCard key={index}
             timestamp={comment.timestamp}
             body={comment.body}
             author={comment.author}
             voteScore={comment.voteScore}
-          />
-        )}
+          />)
+        }
       </div>
     );
   }
 }
 
-const mapStateToProps = ({posts,comments}) => {
+const mapStateToProps = ({posts,comments},ownProps) => {
+  const postID = ownProps.match.params.id;
+  const post = posts.filter(p => p.id===postID);
   return {
-    posts,
+    post:post[0],
     comments
   };
 }
