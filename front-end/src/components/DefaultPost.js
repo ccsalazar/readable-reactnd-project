@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 
 class DefaultPost extends Component {
 
-
   componentDidMount() {
 
   }
 
   render(){
-    console.log('State to Props:',this.props)
     const {posts}=this.props;
     return(
       <section className="default-post">
