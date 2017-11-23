@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoryTabs from './CategoryTabs';
-import Card from './Card';
+// import Card from './Card';
 import { connect } from 'react-redux';
 
 class DefaultPost extends Component {
@@ -17,7 +17,7 @@ class DefaultPost extends Component {
           Create New Post
         </div>
         <CategoryTabs />
-        {
+        {/* {
           posts.map((post,index)=>(
           <Card
             key={index}
@@ -30,7 +30,7 @@ class DefaultPost extends Component {
             voteScore={post.voteScore}
             commentCount={post.commentCount}
           />
-        ))}
+        ))} */}
       </section>
     );
   }
@@ -39,7 +39,7 @@ class DefaultPost extends Component {
 
 function mapStateToProps({posts}){
   return {
-    posts
+    ...posts
   };
 }
 
