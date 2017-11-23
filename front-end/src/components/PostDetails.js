@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import CommentCard from './CommentCard';
+import { connect } from 'react-redux';
+import {getCommentsByPostID} from '../actions';
 
 class PostDetails extends Component {
 
   componentDidMount() {
-
+    const postID = this.props.match.params.id
+    this.props.getComments(postID);
   }
   render(){
-    // console.log('post id:',this.props.match.params.id);
-    const {posts} = this.state;
     return(
       <div className="post-details">
-          <Card
+          {/* <Card
             id={posts.id}
             timestamp={posts.timestamp}
             title={posts.title}
@@ -21,9 +22,9 @@ class PostDetails extends Component {
             category={posts.category}
             voteScore={posts.voteScore}
             commentCount={posts.commentCount}
-          />
+          /> */}
         {
-          this.state.comments.map((comment,index)=>
+          this.props.comments.map((comment,index)=>
           <CommentCard key={index}
             timestamp={comment.timestamp}
             body={comment.body}
@@ -36,5 +37,15 @@ class PostDetails extends Component {
   }
 }
 
+const mapStateToProps = ({posts,comments}) => {
+  return {
+    posts,
+    comments
+  };
+}
+const mapDispatchToProps = dispatch => ({
+  getComments:(id)=>dispatch(getCommentsByPostID(id))
+});
 
-export default PostDetails;
+
+export default connect(mapStateToProps,mapDispatchToProps)(PostDetails);

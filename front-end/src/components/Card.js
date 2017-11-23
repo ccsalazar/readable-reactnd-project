@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import {MdAccountCircle,MdMoreVert} from 'react-icons/lib/md'
 import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
 

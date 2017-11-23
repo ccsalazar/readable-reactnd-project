@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('Root App',this.props)
+    // console.log('Root App',this.props)
      // ServerAPIUtil.getALLPosts().then(posts=>console.log('data:',posts))
     return (
       <div className="App">

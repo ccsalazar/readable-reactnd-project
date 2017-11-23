@@ -17,3 +17,10 @@ export const initializePosts = ()=> dispatch =>(
     .getALLPosts()
     .then(posts => dispatch(receivePosts(posts)))
 );
+
+export const getCommentsByPostID = (id)=> dispatch =>(
+  ServerAPIUtil
+    .getCommentsByPostID(id)
+    .then(comments => dispatch(receiveComments(comments)))
+    //
+);

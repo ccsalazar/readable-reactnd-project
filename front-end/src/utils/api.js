@@ -22,11 +22,11 @@ export const getPostsById = (id) => {
       .catch(error=>console.log('ERROR:',error))
       .then(response=>console.log('Axios Here',response.data));
 }
-export const getPostsComments = (id) => {
+export const getCommentsByPostID = (id) => {
   const url = `http://localhost:3001/posts/${id}/comments`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
-      .then(response=>console.log('Axios Here',response.data));
+      .then(response=>response.data);
 }
 
 export const getCommentDetails = (id) => {
