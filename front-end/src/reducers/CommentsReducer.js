@@ -2,7 +2,6 @@ import{
   GET_COMMENTS
 } from '../actions'
 
-const commentsReducerDefaultState = {};
 
 export default (state={},action)=>{
   switch(action.type){
