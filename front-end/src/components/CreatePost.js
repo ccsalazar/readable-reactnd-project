@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as ServerAPIUtil from '../utils/api';
 
 class CreatePost extends Component {
 
@@ -11,7 +12,7 @@ class CreatePost extends Component {
 
   handleSubmit (e){
     e.preventDefault();
-    console.log(this.state);
+    ServerAPIUtil.addNewPost(this.state).then(posts=>console.log('Response In Component',posts))
   }
   handleInputChange(e){
     const name = e.target.name;
@@ -22,8 +23,10 @@ class CreatePost extends Component {
   }
 
   render(){
+    // const timestamp = Date.now();
+    // console.log(timestamp);
     return(
-    <form onSubmit={this.handleSubmit.bind(this)} action="POST">
+    <form onSubmit={this.handleSubmit.bind(this)}>
       <div className="form-container">
         <h1>Create/Edit Post</h1>
         <div className="form-row">
@@ -59,7 +62,10 @@ class CreatePost extends Component {
             Category:
           </div>
           <div className="select-category">
-            <select name="category" value={this.state.category} onChange={this.handleInputChange.bind(this)}>
+            <select
+              name="category"
+              value={this.state.category?this.state.category:'none'}
+              onChange={this.handleInputChange.bind(this)}>
               <option disabled value="none">None</option>
               <option value="react">React</option>
               <option value="redux">Redux</option>
@@ -68,7 +74,10 @@ class CreatePost extends Component {
           </div>
         </div>
         <div className="form-body">
-          <textarea name="body" value={this.state.body} onChange={this.handleInputChange.bind(this)}/>
+          <textarea
+            name="body"
+            value={this.state.body}
+            onChange={this.handleInputChange.bind(this)}/>
         </div>
         <div>
           <input type="submit" value="Submit"/>
