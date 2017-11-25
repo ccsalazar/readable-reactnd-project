@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch,Route } from 'react-router-dom';
+import {withRouter} from 'react-router';
 import Header from './Header';
 import DefaultPost from './DefaultPost';
 import PostDetails from './PostDetails';
@@ -42,4 +43,4 @@ const mapDispatchToProps = dispatch => ({
     initPosts: ()=>dispatch(initializePosts())
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));

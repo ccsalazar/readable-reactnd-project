@@ -23,7 +23,6 @@ const store = createStore(
 );
 
 
-console.log('GET STATE:',store.getState());
 
 ReactDOM.render(
 <Provider store={store}>
