@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as ServerAPIUtil from '../utils/api';
-import {Redirect,withRouter} from 'react-router';
+import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 class CreatePost extends Component {
@@ -106,4 +106,4 @@ const mapStateToProps = ({posts,comments})=>{
 }
 
 
-export default withRouter(connect(mapStateToProps)(CreatePost));
+export default connect(mapStateToProps)(CreatePost);
