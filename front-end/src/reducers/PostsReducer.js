@@ -1,6 +1,6 @@
 import{
   GET_POSTS
-} from '../actions'
+} from '../actions/posts'
 
 
 // const postsReducerDefaultState = {};

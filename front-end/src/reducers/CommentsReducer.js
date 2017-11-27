@@ -1,6 +1,6 @@
 import{
   GET_COMMENTS
-} from '../actions'
+} from '../actions/comments'
 
 
 export default (state={},action)=>{

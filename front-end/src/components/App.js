@@ -6,7 +6,7 @@ import DefaultPost from './DefaultPost';
 import PostDetails from './PostDetails';
 import CreatePost from './CreatePost';
 import {connect} from 'react-redux';
-import {initializePosts} from '../actions';
+import {initializePosts} from '../actions/posts';
 // import * as ServerAPIUtil from '../utils/api'
 
 

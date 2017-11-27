@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
-import {getCommentsByPostID} from '../actions';
+import {getCommentsByPostID} from '../actions/comments';
 
 class PostDetails extends Component {
 
