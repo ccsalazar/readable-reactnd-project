@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import * as ServerAPIUtil from '../utils/api';
 import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
 import {createNewPost} from '../actions/posts';
@@ -19,7 +18,6 @@ class CreatePost extends Component {
   handleSubmit (e){
     e.preventDefault();
     this.props.createNewPost(this.state.post);
-    // ServerAPIUtil.addNewPost(this.state).then(posts=>console.log('Response In Component',posts));
     this.setState({redirect:true});
   }
   handleInputChange(e){
@@ -34,7 +32,6 @@ class CreatePost extends Component {
   }
 
   render(){
-    console.log(this.state.post)
     const {redirect}=this.state;
     const{author,title,category,body} = this.state.post;
     return(

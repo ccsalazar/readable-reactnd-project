@@ -19,8 +19,8 @@ export const initializePosts = ()=> dispatch =>(
     .then(posts => dispatch(receivePosts(posts)))
 );
 
-export const createNewPost = (postData)=> dispatch =>(
+export const createNewPost = (post)=> dispatch =>(
   ServerAPIUtil
-    .addNewPost(postData)
-    .then(data => console.log('DISPATCH',data))
+    .addNewPost(post)
+    .then(data => dispatch(addPost(data)))
 );

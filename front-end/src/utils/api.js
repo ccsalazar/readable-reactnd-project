@@ -59,8 +59,7 @@ export const addNewPost = (data) => {
     id:uuid(),
     timestamp:Date.now()
   }
-  console.log("TEST DATA:",data)
   return axios.post(url,data,headers)
       .catch(error=>console.log('ERROR:',error))
-      .then(response=>console.log('Axios Response',response));
+      .then(response=>response.data);
 }
