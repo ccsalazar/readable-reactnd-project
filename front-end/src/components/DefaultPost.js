@@ -7,7 +7,7 @@ class DefaultPost extends Component {
 
   render(){
     const {posts}=this.props;
-    console.log('Default:',this.props.posts)
+    // console.log('Default:',this.props.posts)
     return(
       <section className="default-post">
         <div className="btn">

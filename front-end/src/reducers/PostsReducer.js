@@ -1,5 +1,6 @@
 import{
-  GET_POSTS
+  GET_POSTS,
+  ADD_POST
 } from '../actions/posts'
 
 
@@ -9,13 +10,19 @@ export default (state={},action)=>{
 
   switch(action.type){
     case GET_POSTS:
-      const {posts}=action
+    const {posts}=action;
       return [
         ...state,
         ...posts
       ]
-  default:
-    return [...state]
+    case ADD_POST:
+    console.log('POST REDUCER', action.posts)
+      return [
+        ...state,
+        ...posts
+      ]
+    default:
+      return [...state]
   }
 };
 //

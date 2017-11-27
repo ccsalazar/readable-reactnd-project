@@ -1,33 +1,42 @@
 import React, { Component } from 'react';
-import * as ServerAPIUtil from '../utils/api';
+// import * as ServerAPIUtil from '../utils/api';
 import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
+import {createNewPost} from '../actions/posts';
 
 class CreatePost extends Component {
 
   state = {
-    author: '',
-    title:'',
-    category:'',
-    body:'',
+    post:{
+      author: '',
+      title:'',
+      category:'',
+      body:''
+    },
     redirect:false
   }
 
   handleSubmit (e){
     e.preventDefault();
-    ServerAPIUtil.addNewPost(this.state).then(posts=>console.log('Response In Component',posts));
+    this.props.createNewPost(this.state.post);
+    // ServerAPIUtil.addNewPost(this.state).then(posts=>console.log('Response In Component',posts));
     this.setState({redirect:true});
   }
   handleInputChange(e){
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      [name]: value
+      post:{
+        ...this.state.post,
+        [name]: value
+      }
     });
   }
 
   render(){
+    console.log(this.state.post)
     const {redirect}=this.state;
+    const{author,title,category,body} = this.state.post;
     return(
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -41,7 +50,7 @@ class CreatePost extends Component {
                 <input
                   type="text"
                   name="author"
-                  value={this.state.author}
+                  value={author}
                   onChange={this.handleInputChange.bind(this)}
                   placeholder="Enter Full Name.."
                 />
@@ -55,7 +64,7 @@ class CreatePost extends Component {
                 <input
                   type="text"
                   name="title"
-                  value={this.state.title}
+                  value={title}
                   onChange={this.handleInputChange.bind(this)}
                   placeholder="Enter Post Title.."
                 />
@@ -68,7 +77,7 @@ class CreatePost extends Component {
               <div className="select-category">
                 <select
                   name="category"
-                  value={this.state.category?this.state.category:'none'}
+                  value={category?category:'none'}
                   onChange={this.handleInputChange.bind(this)}>
                   <option disabled value="none">None</option>
                   <option value="react">React</option>
@@ -80,7 +89,7 @@ class CreatePost extends Component {
             <div className="form-body">
               <textarea
                 name="body"
-                value={this.state.body}
+                value={body}
                 onChange={this.handleInputChange.bind(this)}/>
             </div>
             <div>
@@ -105,5 +114,8 @@ const mapStateToProps = ({posts,comments})=>{
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  createNewPost:(post)=>dispatch(createNewPost(post))
+});
 
-export default connect(mapStateToProps)(CreatePost);
+export default connect(mapStateToProps,mapDispatchToProps)(CreatePost);
