@@ -11,8 +11,10 @@ class PostDetails extends Component {
     this.props.getComments(postID);
   }
   render(){
-
+    console.log('Props:',this.props);
     const {post,comments}=this.props;
+
+
     return(
 
       <div className="post-details">
@@ -47,9 +49,10 @@ class PostDetails extends Component {
 const mapStateToProps = ({posts,comments},ownProps) => {
   const postID = ownProps.match.params.id;
   const post = posts.filter(p => p.id===postID);
+  const filteredComments = comments.filter(c=>c.parentId===postID);
   return {
     post:post[0],
-    comments
+    comments:filteredComments
   };
 }
 const mapDispatchToProps = dispatch => ({
