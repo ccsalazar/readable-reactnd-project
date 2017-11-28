@@ -7,6 +7,7 @@ import PostDetails from './PostDetails';
 import CreatePost from './CreatePost';
 import {connect} from 'react-redux';
 import {initializePosts} from '../actions/posts';
+import {initComments} from '../actions/comments';
 // import * as ServerAPIUtil from '../utils/api'
 
 
@@ -40,7 +41,8 @@ const mapStateToProps = ({posts,comments}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    initPosts: ()=>dispatch(initializePosts())
+    initPosts: ()=>dispatch(initializePosts()),
+    initComments:()=>dispatch(initComments())
 });
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));

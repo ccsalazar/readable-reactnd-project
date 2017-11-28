@@ -3,18 +3,19 @@ import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
 import {getCommentsByPostID} from '../actions/comments';
+// import * as ServerAPIUtil from '../utils/api';
 
 class PostDetails extends Component {
 
   componentDidMount() {
     const postID = this.props.match.params.id
     this.props.getComments(postID);
+    // ServerAPIUtil.getCommentsByPostID(postID).then(comments=>this.setState({comments}));
   }
   render(){
-    console.log('Props:',this.props);
+    // console.log('Props:',this.props);
     const {post,comments}=this.props;
-
-
+    // const {comments} = this.state;
     return(
 
       <div className="post-details">
