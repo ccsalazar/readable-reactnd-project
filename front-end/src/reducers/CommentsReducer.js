@@ -10,7 +10,6 @@ export default (state={},action)=>{
     const newItems=state.filter(stateItem =>
       !queuedItems.includes(stateItem.id)
     );
-    console.log('length:',newItems.length)
     return newItems.length===0 && state.length!==0 ?
       [...state]:[...state,...action.comments]
     default:
