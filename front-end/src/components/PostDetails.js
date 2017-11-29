@@ -36,6 +36,7 @@ class PostDetails extends Component {
           comments!== undefined &&
           comments.map((comment,index)=>
           <CommentCard key={index}
+            id={comment.id}
             timestamp={comment.timestamp}
             body={comment.body}
             author={comment.author}

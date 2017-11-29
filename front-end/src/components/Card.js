@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
 import {MdAccountCircle,MdMoreVert} from 'react-icons/lib/md'
-import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
+// import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
+import VoteScore from './VoteScore';
 
 const Card = (props) => {
 
@@ -42,11 +43,16 @@ const Card = (props) => {
         {props.body}
       </div>
       <div className="post-card__popularity">
-        <div className="post-card__votes">
+        <VoteScore
+        id={props.id}
+        voteItem="post"
+        voteScore={props.voteScore}
+        />
+        {/* <div className="post-card__votes">
           <span className="TiThumbsUp icon-clickable"><TiThumbsUp/> </span>
           {props.voteScore}
           <span className="TiThumbsDown icon-clickable"> <TiThumbsDown/></span>
-        </div>
+        </div> */}
         <div className="post-card__comments">
           <Link to={`/posts/${props.id}/comments`}>
           {props.commentCount} Comments

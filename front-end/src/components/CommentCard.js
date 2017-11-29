@@ -1,6 +1,7 @@
 import React from 'react';
 import {MdAccountCircle,MdMoreVert} from 'react-icons/lib/md';
-import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
+// import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
+import VoteScore from './VoteScore';
 
 
 const CommentCard = (props) => {
@@ -36,11 +37,16 @@ const CommentCard = (props) => {
           {props.body}
         </div>
         <div className="post-card__popularity">
-          <div className="post-card__votes">
+          <VoteScore
+          id={props.id}
+          voteItem="comment"
+          voteScore={props.voteScore}
+          />
+          {/* <div className="post-card__votes">
             <span className="TiThumbsUp icon-clickable"><TiThumbsUp/> </span>
             {props.voteScore}
             <span className="TiThumbsDown icon-clickable"> <TiThumbsDown/></span>
-          </div>
+          </div> */}
         </div>
       </div>
     );
