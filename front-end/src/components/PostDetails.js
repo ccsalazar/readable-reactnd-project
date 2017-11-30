@@ -3,12 +3,10 @@ import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
 import {getCommentsByPostID} from '../actions/comments';
-// import {initializePosts} from '../actions/posts';
 
 class PostDetails extends Component {
 
   componentDidMount() {
-    // this.props.initPosts();
     const postID = this.props.match.params.id
     this.props.getComments(postID);
   }
@@ -60,7 +58,6 @@ const mapStateToProps = ({posts,comments},ownProps) => {
   };
 }
 const mapDispatchToProps = dispatch => ({
-  // initPosts: ()=>dispatch(initializePosts()),
   getComments:(id)=>dispatch(getCommentsByPostID(id))
 });
 
