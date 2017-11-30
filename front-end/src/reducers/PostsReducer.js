@@ -27,12 +27,16 @@ export default (state={},action)=>{
         [posts.id]:posts
       }
     case UPVOTE_POST:
-      // state.map((item,index)=>action.posts.id===item.id?
-      // console.log('UpDATED',item.voteScore+1):console.log('no match'))
-      return{...state,
+      console.log('voted:',posts);
+      return{
+        ...state,
+        [posts.id]:posts
       }
     case DOWNVOTE_POST:
-      return {...state}
+      return {
+        ...state,
+        [posts.id]:posts
+      }
     default:
       return {...state}
   }
