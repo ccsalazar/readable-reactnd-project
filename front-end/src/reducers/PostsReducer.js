@@ -13,10 +13,14 @@ export default (state={},action)=>{
   const {posts}=action;
   switch(action.type){
     case GET_POSTS:
-      return [
+    const newPosts = posts.reduce((byId,post)=>{
+      return {...byId,[post.id]:post}
+    },{})
+    console.log("New Post",newPosts)
+      return {
         ...state,
-        ...posts
-      ]
+        ...newPosts
+      }
     case ADD_POST:
       return [
         ...state,
