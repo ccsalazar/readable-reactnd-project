@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class DefaultPost extends Component {
 
   render(){
-    const {posts}=this.props;
+    const {postsArr}=this.props;
     // console.log('Default:',this.props.posts)
     return(
       <section className="default-post">
@@ -15,7 +15,7 @@ class DefaultPost extends Component {
         </div>
         <CategoryTabs />
         {
-          posts.map((post,index)=>(
+          postsArr.map((post,index)=>(
           <Card
             key={index}
             id={post.id}
@@ -35,8 +35,9 @@ class DefaultPost extends Component {
 }
 
 const mapStateToProps = ({posts}) => {
+  const postsArr = Object.values(posts);
   return {
-    posts
+    postsArr
   };
 }
 
