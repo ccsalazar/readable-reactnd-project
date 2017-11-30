@@ -31,7 +31,7 @@ class PostDetails extends Component {
             commentCount={post.commentCount}
           />
         }
-        {/* {
+        {
           comments!== undefined &&
           comments.map((comment,index)=>
           <CommentCard key={index}
@@ -41,7 +41,7 @@ class PostDetails extends Component {
             author={comment.author}
             voteScore={comment.voteScore}
           />)
-        } */}
+        }
       </div>
     );
   }
@@ -51,9 +51,12 @@ const mapStateToProps = ({posts,comments},ownProps) => {
   const postID = ownProps.match.params.id;
   const postsArr = Object.values(posts);
   const post = postsArr.filter(p => p.id===postID);
-  // const filteredComments = comments.filter(c=>c.parentId===postID);
+
+  const commentsArr = Object.values(comments);
+  const filteredComments = commentsArr.filter(c=>c.parentId===postID);
   return {
-    post:post[0]
+    post:post[0],
+    comments:filteredComments
   };
 }
 const mapDispatchToProps = dispatch => ({
