@@ -3,19 +3,18 @@ import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
 import {getCommentsByPostID} from '../actions/comments';
-// import * as ServerAPIUtil from '../utils/api';
+// import {initializePosts} from '../actions/posts';
 
 class PostDetails extends Component {
 
   componentDidMount() {
+    // this.props.initPosts();
     const postID = this.props.match.params.id
     this.props.getComments(postID);
-    // ServerAPIUtil.getCommentsByPostID(postID).then(comments=>this.setState({comments}));
   }
+
   render(){
-    // console.log('Props:',this.props);
     const {post,comments}=this.props;
-    // const {comments} = this.state;
     return(
 
       <div className="post-details">
@@ -32,7 +31,7 @@ class PostDetails extends Component {
             commentCount={post.commentCount}
           />
         }
-        {
+        {/* {
           comments!== undefined &&
           comments.map((comment,index)=>
           <CommentCard key={index}
@@ -42,7 +41,7 @@ class PostDetails extends Component {
             author={comment.author}
             voteScore={comment.voteScore}
           />)
-        }
+        } */}
       </div>
     );
   }
@@ -50,14 +49,15 @@ class PostDetails extends Component {
 
 const mapStateToProps = ({posts,comments},ownProps) => {
   const postID = ownProps.match.params.id;
-  const post = posts.filter(p => p.id===postID);
-  const filteredComments = comments.filter(c=>c.parentId===postID);
+  const postsArr = Object.values(posts);
+  const post = postsArr.filter(p => p.id===postID);
+  // const filteredComments = comments.filter(c=>c.parentId===postID);
   return {
-    post:post[0],
-    comments:filteredComments
+    post:post[0]
   };
 }
 const mapDispatchToProps = dispatch => ({
+  // initPosts: ()=>dispatch(initializePosts()),
   getComments:(id)=>dispatch(getCommentsByPostID(id))
 });
 

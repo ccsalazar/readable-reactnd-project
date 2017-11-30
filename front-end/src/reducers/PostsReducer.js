@@ -13,14 +13,13 @@ export default (state={},action)=>{
   const {posts}=action;
   switch(action.type){
     case GET_POSTS:
-    const newPosts = posts.reduce((byId,post)=>{
-      return {...byId,[post.id]:post}
-    },{})
-    console.log("New Post",newPosts)
-      return {
-        ...state,
-        ...newPosts
-      }
+      const newPosts = posts.reduce((byId,post)=>{
+        return {...byId,[post.id]:post}
+      },{})
+        return {
+          ...state,
+          ...newPosts
+        }
     case ADD_POST:
       return [
         ...state,
@@ -34,6 +33,6 @@ export default (state={},action)=>{
     case DOWNVOTE_POST:
       return [...state]
     default:
-      return [...state]
+      return {...state}
   }
 };
