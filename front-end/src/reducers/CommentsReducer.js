@@ -1,5 +1,7 @@
 import{
-  GET_COMMENTS
+  GET_COMMENTS,
+  UPVOTE_COMMENT,
+  DOWNVOTE_COMMENT
 } from '../actions/comments'
 
 
@@ -14,12 +16,16 @@ export default (state={},action)=>{
         ...state,
         ...newComments
       }
-      // const queuedItems = action.comments.map(a=>a.id);
-      // const newItems=state.filter(stateItem =>
-      //   !queuedItems.includes(stateItem.id)
-      // );
-      // return newItems.length===0 && state.length!==0 ?
-      //   [...state]:[...state,...action.comments]
+      case UPVOTE_COMMENT:
+        return{
+          ...state,
+          [comments.id]:comments
+        }
+      case DOWNVOTE_COMMENT:
+        return {
+          ...state,
+          [comments.id]:comments
+        }
     default:
       return {...state}
   }

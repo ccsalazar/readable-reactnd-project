@@ -27,7 +27,6 @@ export default (state={},action)=>{
         [posts.id]:posts
       }
     case UPVOTE_POST:
-      console.log('voted:',posts);
       return{
         ...state,
         [posts.id]:posts

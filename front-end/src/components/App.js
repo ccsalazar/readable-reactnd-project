@@ -7,8 +7,6 @@ import PostDetails from './PostDetails';
 import CreatePost from './CreatePost';
 import {connect} from 'react-redux';
 import {initializePosts} from '../actions/posts';
-import {initComments} from '../actions/comments';
-// import * as ServerAPIUtil from '../utils/api'
 
 
 class App extends Component {
@@ -18,8 +16,6 @@ class App extends Component {
   }
 
   render() {
-    // console.log('Root App',this.props)
-     // ServerAPIUtil.getALLPosts().then(posts=>console.log('data:',posts))
     return (
       <div className="App">
         <Header />
@@ -35,14 +31,12 @@ class App extends Component {
 
 const mapStateToProps = ({posts,comments}) => {
   return {
-    posts,
-    comments
+    posts
   };
 }
 
 const mapDispatchToProps = dispatch => ({
-    initPosts: ()=>dispatch(initializePosts()),
-    initComments:()=>dispatch(initComments())
+    initPosts: ()=>dispatch(initializePosts())
 });
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
