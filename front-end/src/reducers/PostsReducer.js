@@ -21,17 +21,18 @@ export default (state={},action)=>{
           ...newPosts
         }
     case ADD_POST:
-      return [
+      console.log(posts);
+      return {
         ...state,
-        posts
-      ]
+        [posts.id]:posts
+      }
     case UPVOTE_POST:
       // state.map((item,index)=>action.posts.id===item.id?
       // console.log('UpDATED',item.voteScore+1):console.log('no match'))
-      return[...state,
-      ]
+      return{...state,
+      }
     case DOWNVOTE_POST:
-      return [...state]
+      return {...state}
     default:
       return {...state}
   }
