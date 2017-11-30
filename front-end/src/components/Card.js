@@ -45,7 +45,7 @@ const Card = (props) => {
       <div className="post-card__popularity">
         <VoteScore
         id={props.id}
-        voteItem="post"
+        voteItem="posts"
         voteScore={props.voteScore}
         />
         {/* <div className="post-card__votes">

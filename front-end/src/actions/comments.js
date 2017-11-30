@@ -14,9 +14,16 @@ export const receiveComments = comments => ({
   comments
 });
 
+//THUNK MIDDLEWARE ASYNC ACTIONS
 export const getCommentsByPostID = (id)=> dispatch =>(
   ServerAPIUtil
     .getCommentsByPostID(id)
     .then(comments => dispatch(receiveComments(comments)))
     //
 );
+
+// export const voteOnComment = (id,item,vote)=> dispatch =>(
+//   ServerAPIUtil
+//     .voteItem(id,,item,vote)
+//     .then(data => dispatch(addPost(data)))
+// );

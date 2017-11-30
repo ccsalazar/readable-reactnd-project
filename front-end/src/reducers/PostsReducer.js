@@ -1,6 +1,8 @@
 import{
   GET_POSTS,
-  ADD_POST
+  ADD_POST,
+  UPVOTE_POST,
+  DOWNVOTE_POST
 } from '../actions/posts'
 
 
@@ -8,18 +10,25 @@ import{
 
 export default (state={},action)=>{
 
-  // const {posts}=action;
+  const {posts}=action;
   switch(action.type){
     case GET_POSTS:
       return [
         ...state,
-        ...action.posts
+        ...posts
       ]
     case ADD_POST:
       return [
         ...state,
-        action.posts
+        posts
       ]
+    case UPVOTE_POST:
+      // state.map((item,index)=>action.posts.id===item.id?
+      // console.log('UpDATED',item.voteScore+1):console.log('no match'))
+      return[...state,
+      ]
+    case DOWNVOTE_POST:
+      return [...state]
     default:
       return [...state]
   }

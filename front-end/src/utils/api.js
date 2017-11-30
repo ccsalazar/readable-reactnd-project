@@ -63,3 +63,13 @@ export const addNewPost = (data) => {
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
+
+export const voteItem = (id,item,vote) => {
+  const url = `${domain}/${item}/${id}`;
+  const data={
+    option:vote
+  }
+  return axios.post(url,data,headers)
+      .catch(error=>console.log('ERROR:',error))
+      .then(response=>response.data);
+}
