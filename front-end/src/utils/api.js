@@ -21,13 +21,13 @@ export const getPostsByCategory = (category) => {
   const url = `${domain}/${category}/posts`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
-      .then(response=>console.log('Axios Here',response.data));
+      .then(response=>response.data);
 }
 export const getPostsById = (id) => {
   const url = `${domain}/posts/${id}`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
-      .then(response=>console.log('Axios Here',response.data));
+      .then(response=>response.data);
 }
 export const getCommentsByPostID = (id) => {
   const url = `${domain}/posts/${id}/comments`;

@@ -33,7 +33,9 @@ const Card = (props) => {
           </div>
         </div>
         <div className="post-card__controls">
-          <MdMoreVert className="MdMoreVert icon-clickable"/>
+          <Link to={`/posts/${props.id}/edit`}>
+            <MdMoreVert className="MdMoreVert icon-clickable"/>
+          </Link>
         </div>
       </div>
       <div className="post-card__title">

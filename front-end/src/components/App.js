@@ -12,7 +12,7 @@ import {initializePosts} from '../actions/posts';
 class App extends Component {
 
   componentDidMount () {
-    this.props.initPosts();
+    // this.props.initPosts();
   }
 
   render() {
@@ -22,6 +22,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={DefaultPost}/>
           <Route path="/posts/:id/comments" component={PostDetails}/>
+          <Route path="/posts/:id/edit" component={CreatePost}/>
           <Route path="/create" component={CreatePost}/>
         </Switch>
       </div>

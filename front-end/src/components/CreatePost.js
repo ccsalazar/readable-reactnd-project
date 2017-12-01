@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
 import {createNewPost} from '../actions/posts';
+import {fetchPost} from '../actions/posts';
 
 class CreatePost extends Component {
 
@@ -12,7 +13,33 @@ class CreatePost extends Component {
       category:'',
       body:''
     },
-    redirect:false
+    redirect:false,
+    mode:''
+  }
+
+
+  componentDidMount(){
+    //CHECKS IF EDIT OR CREATE FORM
+    const postIdValid = this.props.match.params.id?this.props.match.params.id:null;
+    const mode = postIdValid?'edit':'create';
+    if (mode==='edit'){
+      this.props.fetchPost(postIdValid);
+    }
+    this.setState({mode});
+  }
+
+  componentWillReceiveProps(nextProps){
+    // USED TO FILL EDIT FORM WHEN FETCHED POST IS RECEIVED
+    const postIdValid = this.props.match.params.id;
+    const {author,title,category,body} = nextProps.posts[postIdValid];
+    this.setState({
+      post:{
+        author:author,
+        title:title,
+        category:category,
+        body:body
+      }
+    })
   }
 
   handleSubmit (e){
@@ -104,15 +131,16 @@ class CreatePost extends Component {
   }
 }
 
-const mapStateToProps = ({posts,comments})=>{
+const mapStateToProps = ({posts,comments},ownProps)=>{
+  // const postID = ownProps.match.params.id;
   return {
-    posts,
-    comments
+    posts
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  createNewPost:(post)=>dispatch(createNewPost(post))
+  createNewPost:(post)=>dispatch(createNewPost(post)),
+  fetchPost:(id)=>dispatch(fetchPost(id))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(CreatePost);

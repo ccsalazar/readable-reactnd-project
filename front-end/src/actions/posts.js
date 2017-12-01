@@ -1,12 +1,17 @@
 import * as ServerAPIUtil from '../utils/api';
 
 //TYPES
+export const GET_POST="GET_POST"
 export const GET_POSTS="GET_POSTS"
 export const ADD_POST="ADD_POST"
 export const UPVOTE_POST="UPVOTE_POST"
 export const DOWNVOTE_POST="DOWNVOTE_POST"
 
 //ACTION CREATORS
+export const receivePost = posts => ({
+  type:GET_POST,
+  posts
+});
 export const receivePosts = posts => ({
   type:GET_POSTS,
   posts
@@ -26,6 +31,12 @@ export const downVotePost = posts => ({
 
 
 //THUNKS MIDDLEWARE ASYNC ACTIONS
+export const fetchPost = (id)=> dispatch =>(
+  ServerAPIUtil
+    .getPostsById(id)
+    .then(posts =>dispatch(receivePost(posts))
+  )
+);
 export const initializePosts = ()=> dispatch =>(
   ServerAPIUtil
     .getALLPosts()
