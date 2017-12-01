@@ -37,7 +37,7 @@ export const fetchPost = (id)=> dispatch =>(
     .then(posts =>dispatch(receivePost(posts))
   )
 );
-export const initializePosts = ()=> dispatch =>(
+export const fetchAllPosts = ()=> dispatch =>(
   ServerAPIUtil
     .getALLPosts()
     .then(posts => dispatch(receivePosts(posts)))

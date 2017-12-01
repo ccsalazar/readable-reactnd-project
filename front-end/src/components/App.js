@@ -5,15 +5,8 @@ import Header from './Header';
 import DefaultPost from './DefaultPost';
 import PostDetails from './PostDetails';
 import CreatePost from './CreatePost';
-import {connect} from 'react-redux';
-import {initializePosts} from '../actions/posts';
-
 
 class App extends Component {
-
-  componentDidMount () {
-    // this.props.initPosts();
-  }
 
   render() {
     return (
@@ -30,14 +23,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({posts,comments}) => {
-  return {
-    posts
-  };
-}
-
-const mapDispatchToProps = dispatch => ({
-    initPosts: ()=>dispatch(initializePosts())
-});
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
+export default withRouter(App);

@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import CategoryTabs from './CategoryTabs';
 import Card from './Card';
 import { connect } from 'react-redux';
+import {fetchAllPosts} from '../actions/posts';
 
 class DefaultPost extends Component {
 
+
+  componentDidMount(){
+    this.props.fetchAllPosts();
+  }
   render(){
     const {postsArr}=this.props;
-    // console.log('Default:',this.props.posts)
     return(
       <section className="default-post">
         <div className="btn">
@@ -40,5 +44,8 @@ const mapStateToProps = ({posts}) => {
     postsArr
   };
 }
+const mapDispatchToProps = dispatch => ({
+    fetchAllPosts: ()=>dispatch(fetchAllPosts())
+});
 
-export default connect(mapStateToProps)(DefaultPost);
+export default connect(mapStateToProps,mapDispatchToProps)(DefaultPost);
