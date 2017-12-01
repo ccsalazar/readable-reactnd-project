@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
+import {fetchPost} from '../actions/posts';
 import {getCommentsByPostID} from '../actions/comments';
 
 class PostDetails extends Component {
 
   componentDidMount() {
-    const postID = this.props.match.params.id
-    this.props.getComments(postID);
+    const postId = this.props.match.params.id;
+    this.props.fetchPost(postId);
+    this.props.getComments(postId);
   }
 
   render(){
@@ -58,6 +60,7 @@ const mapStateToProps = ({posts,comments},ownProps) => {
   };
 }
 const mapDispatchToProps = dispatch => ({
+  fetchPost:(id)=>dispatch(fetchPost(id)),
   getComments:(id)=>dispatch(getCommentsByPostID(id))
 });
 
