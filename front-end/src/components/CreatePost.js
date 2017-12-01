@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
-import {createNewPost} from '../actions/posts';
+import {createNewPost,editPost} from '../actions/posts';
 import {fetchPost} from '../actions/posts';
 
 class CreatePost extends Component {
@@ -11,15 +11,15 @@ class CreatePost extends Component {
       author: '',
       title:'',
       category:'',
-      body:''
+      body:'',
+      id:''
     },
     redirect:false,
     mode:''
   }
 
-
+  //CHECKS IF EDIT OR CREATE FORM
   componentDidMount(){
-    //CHECKS IF EDIT OR CREATE FORM
     const postIdValid = this.props.match.params.id?this.props.match.params.id:null;
     const mode = postIdValid?'edit':'create';
     if (mode==='edit'){
@@ -28,23 +28,26 @@ class CreatePost extends Component {
     this.setState({mode});
   }
 
+  // USED TO FILL EDIT FORM WHEN FETCHED POST IS RECEIVED
   componentWillReceiveProps(nextProps){
-    // USED TO FILL EDIT FORM WHEN FETCHED POST IS RECEIVED
     const postIdValid = this.props.match.params.id;
-    const {author,title,category,body} = nextProps.posts[postIdValid];
+    const {author,title,category,body,id} = nextProps.posts[postIdValid];
     this.setState({
       post:{
         author:author,
         title:title,
         category:category,
-        body:body
+        body:body,
+        id:id
       }
     })
   }
 
   handleSubmit (e){
     e.preventDefault();
-    this.props.createNewPost(this.state.post);
+    const{createNewPost,editPost}=this.props;
+    const {mode,post}=this.state;
+    mode==='create'?createNewPost(post):editPost(post);
     this.setState({redirect:true});
   }
   handleInputChange(e){
@@ -59,13 +62,14 @@ class CreatePost extends Component {
   }
 
   render(){
-    const {redirect}=this.state;
+    const {redirect,mode}=this.state;
     const{author,title,category,body} = this.state.post;
+    const pageMode = mode==='edit'?'Edit':'Create';
     return(
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-container">
-            <h1>Create/Edit Post</h1>
+            <h1>{pageMode} Post</h1>
             <div className="form-row">
               <div className="form-field">
                 Name:
@@ -140,6 +144,7 @@ const mapStateToProps = ({posts,comments},ownProps)=>{
 
 const mapDispatchToProps = dispatch => ({
   createNewPost:(post)=>dispatch(createNewPost(post)),
+  editPost:(post)=>dispatch(editPost(post)),
   fetchPost:(id)=>dispatch(fetchPost(id))
 });
 

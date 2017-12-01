@@ -73,3 +73,16 @@ export const voteItem = (id,item,vote) => {
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
+
+
+//PUT REQUEST
+export const editPost = (data) => {
+  const url = `${domain}/posts/${data.id}`;
+  data = {
+    title:data.title,
+    body:data.body
+  }
+  return axios.put(url,data,headers)
+      .catch(error=>console.log('ERROR:',error))
+      .then(response=>response.data);
+}

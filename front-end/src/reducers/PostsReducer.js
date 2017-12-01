@@ -2,6 +2,7 @@ import{
   GET_POST,
   GET_POSTS,
   ADD_POST,
+  EDIT_POST,
   UPVOTE_POST,
   DOWNVOTE_POST
 } from '../actions/posts'
@@ -27,7 +28,11 @@ export default (state={},action)=>{
         ...newPosts
       }
     case ADD_POST:
-      console.log(posts);
+      return {
+        ...state,
+        [posts.id]:posts
+      }
+    case EDIT_POST:
       return {
         ...state,
         [posts.id]:posts
