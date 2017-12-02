@@ -89,7 +89,11 @@ body {
     display: inline-block;
     float: right;
     height: 4.7rem;
-    margin-right: 1rem; }
+    margin-right: 1rem;
+    color: #777777; }
+    .post-card__controls:hover {
+      color: #ff5252;
+      transition: all .2s ease-in; }
   .post-card__title {
     margin-bottom: 1rem;
     font-size: 2rem;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-import {MdAccountCircle,MdMoreVert,MdDelete,MdEdit} from 'react-icons/lib/md'
-// import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
+import {MdAccountCircle,MdMoreVert,MdDelete,MdEdit,MdAddBox} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
 
 const Card = (props) => {
@@ -39,8 +38,11 @@ const Card = (props) => {
         </div>
         <div className="post-card__controls">
           <Link to={`/posts/${props.id}/edit`}>
-            <MdEdit className="MdEdit"/>
+            <MdEdit className="MdEdit"/>Edit
           </Link>
+        </div>
+        <div className="post-card__controls">
+          <MdAddBox className="MdAddBox"/>Comment
         </div>
       </div>
       <div className="post-card__title">
@@ -55,17 +57,15 @@ const Card = (props) => {
         voteItem="posts"
         voteScore={props.voteScore}
         />
-        {/* <div className="post-card__votes">
-          <span className="TiThumbsUp icon-clickable"><TiThumbsUp/> </span>
-          {props.voteScore}
-          <span className="TiThumbsDown icon-clickable"> <TiThumbsDown/></span>
-        </div> */}
         <div className="post-card__comments">
           <Link to={`/posts/${props.id}/comments`}>
           {props.commentCount} Comments
           </Link>
         </div>
       </div>
+
+      
+
     </div>
   )
 }

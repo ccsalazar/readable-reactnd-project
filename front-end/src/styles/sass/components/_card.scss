@@ -37,6 +37,12 @@
     float:right;
     height:4.7rem;
     margin-right: 1rem;
+    color:$color-grey-light;
+
+    &:hover{
+      color:$color-primary-orange;
+      transition: all .2s ease-in;
+    }
   }
 
   &__title {
