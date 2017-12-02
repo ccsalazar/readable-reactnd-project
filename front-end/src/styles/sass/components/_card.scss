@@ -32,9 +32,11 @@
   }
 
   &__controls {
+    visibility: hidden;
     display: inline-block;
     float:right;
     height:4.7rem;
+    margin-right: 1rem;
   }
 
   &__title {
@@ -61,5 +63,11 @@
   &__comments {
     display:inline-block;
     float:right;
+  }
+  &:hover{
+    .post-card__controls{
+      visibility: visible;
+      transition: all .2s ease-in;
+    }
   }
 }

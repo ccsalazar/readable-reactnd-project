@@ -84,9 +84,11 @@ body {
     color: #777777;
     font-size: 1.2rem; }
   .post-card__controls {
+    visibility: hidden;
     display: inline-block;
     float: right;
-    height: 4.7rem; }
+    height: 4.7rem;
+    margin-right: 1rem; }
   .post-card__title {
     margin-bottom: 1rem;
     font-size: 2rem;
@@ -105,6 +107,9 @@ body {
   .post-card__comments {
     display: inline-block;
     float: right; }
+  .post-card:hover .post-card__controls {
+    visibility: visible;
+    transition: all .2s ease-in; }
 
 .category-tabs {
   margin: 1rem auto;
