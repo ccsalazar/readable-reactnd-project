@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CategoryTabs from './CategoryTabs';
 import Card from './Card';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import {fetchAllPosts} from '../actions/posts';
 
 class DefaultPost extends Component {
@@ -14,9 +15,11 @@ class DefaultPost extends Component {
     const {postsArr}=this.props;
     return(
       <section className="default-post">
-        <div className="btn">
-          Create New Post
-        </div>
+          <Link to="/create">
+            <div className="btn">
+              Create New Post
+            </div>
+          </Link>
         <CategoryTabs />
         {
           postsArr.map((post,index)=>(
