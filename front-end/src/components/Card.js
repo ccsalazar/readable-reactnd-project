@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-import {MdAccountCircle,MdMoreVert,MdDelete,MdEdit,MdAddBox} from 'react-icons/lib/md'
+import {MdAccountCircle,MdMoreVert,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
+import AddComment from './AddComment';
 
 const Card = (props) => {
 
@@ -42,7 +43,7 @@ const Card = (props) => {
           </Link>
         </div>
         <div className="post-card__controls">
-          <MdAddBox className="MdAddBox"/>Comment
+          <MdComment className="MdComment"/>Comment
         </div>
       </div>
       <div className="post-card__title">
@@ -63,9 +64,6 @@ const Card = (props) => {
           </Link>
         </div>
       </div>
-
-      
-
     </div>
   )
 }
