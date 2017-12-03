@@ -1,5 +1,5 @@
 import React from 'react';
-import {MdAccountCircle,MdMoreVert,MdDelete,MdEdit} from 'react-icons/lib/md';
+import {MdAccountCircle,MdDelete,MdEdit} from 'react-icons/lib/md';
 import {Link} from 'react-router-dom';
 // import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
 import VoteScore from './VoteScore';

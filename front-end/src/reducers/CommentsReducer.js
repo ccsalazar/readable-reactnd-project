@@ -1,5 +1,6 @@
 import{
   GET_COMMENTS,
+  ADD_COMMENTS,
   UPVOTE_COMMENT,
   DOWNVOTE_COMMENT
 } from '../actions/comments'
@@ -16,16 +17,21 @@ export default (state={},action)=>{
         ...state,
         ...newComments
       }
-      case UPVOTE_COMMENT:
-        return{
-          ...state,
-          [comments.id]:comments
-        }
-      case DOWNVOTE_COMMENT:
-        return {
-          ...state,
-          [comments.id]:comments
-        }
+    case ADD_COMMENTS:
+      return{
+        ...state,
+        [comments.id]:comments
+      }
+    case UPVOTE_COMMENT:
+      return{
+        ...state,
+        [comments.id]:comments
+      }
+    case DOWNVOTE_COMMENT:
+      return {
+        ...state,
+        [comments.id]:comments
+      }
     default:
       return {...state}
   }

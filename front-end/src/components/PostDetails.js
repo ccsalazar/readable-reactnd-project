@@ -4,6 +4,7 @@ import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
 import {fetchPost} from '../actions/posts';
 import {getCommentsByPostID} from '../actions/comments';
+import AddComment from './AddComment';
 
 class PostDetails extends Component {
 
@@ -42,6 +43,8 @@ class PostDetails extends Component {
             voteScore={comment.voteScore}
           />)
         }
+      <AddComment
+      id={this.props.match.params.id}/>
       </div>
     );
   }

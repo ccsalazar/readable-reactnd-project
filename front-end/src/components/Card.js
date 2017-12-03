@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-import {MdAccountCircle,MdMoreVert,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
+import {MdAccountCircle,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
-import AddComment from './AddComment';
 
 const Card = (props) => {
 
