@@ -111,15 +111,15 @@ export const editComment = (data) => {
 
 
 //DELETE REQUEST
-export const deletePost = (data) => {
-  const url = `${domain}/posts/${data.id}`;
-  return axios.put(url,data,headers)
+export const deletePost = (id) => {
+  const url = `${domain}/posts/${id}`;
+  return axios.delete(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
-export const deleteComment = (data) => {
-  const url = `${domain}/comments/${data.id}`;
-  return axios.put(url,data,headers)
+export const deleteComment = (id) => {
+  const url = `${domain}/comments/${id}`;
+  return axios.delete(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }

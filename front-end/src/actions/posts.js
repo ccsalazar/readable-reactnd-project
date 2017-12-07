@@ -7,6 +7,7 @@ export const ADD_POST="ADD_POST"
 export const EDIT_POST="EDIT_POST"
 export const UPVOTE_POST="UPVOTE_POST"
 export const DOWNVOTE_POST="DOWNVOTE_POST"
+export const DELETE_POST="DELETE_POST"
 
 //ACTION CREATORS
 export const receivePost = posts => ({
@@ -31,6 +32,10 @@ export const upVotePost = posts => ({
 });
 export const downVotePost = posts => ({
   type:DOWNVOTE_POST,
+  posts
+});
+export const delPost = posts => ({
+  type:DELETE_POST,
   posts
 });
 
@@ -65,4 +70,9 @@ export const voteOnPost = (id,item,vote)=> dispatch =>(
     .then(data =>vote==='upVote'?
     dispatch(upVotePost(data)):dispatch(downVotePost(data))
   )
+);
+export const deletePost = (id)=> dispatch =>(
+  ServerAPIUtil
+    .deletePost(id)
+    .then(data =>dispatch(delPost(data)))
 );
