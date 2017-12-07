@@ -108,3 +108,18 @@ export const editComment = (data) => {
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
+
+
+//DELETE REQUEST
+export const deletePost = (data) => {
+  const url = `${domain}/posts/${data.id}`;
+  return axios.put(url,data,headers)
+      .catch(error=>console.log('ERROR:',error))
+      .then(response=>response.data);
+}
+export const deleteComment = (data) => {
+  const url = `${domain}/comments/${data.id}`;
+  return axios.put(url,data,headers)
+      .catch(error=>console.log('ERROR:',error))
+      .then(response=>response.data);
+}
