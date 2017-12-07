@@ -97,3 +97,14 @@ export const editPost = (data) => {
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
+export const editComment = (data) => {
+  const url = `${domain}/comments/${data.id}`;
+  data = {
+    id:data.id,
+    timestamp:Date.now(),
+    body:data.body
+  }
+  return axios.put(url,data,headers)
+      .catch(error=>console.log('ERROR:',error))
+      .then(response=>response.data);
+}

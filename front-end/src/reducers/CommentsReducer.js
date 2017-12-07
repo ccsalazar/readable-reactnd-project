@@ -1,6 +1,7 @@
 import{
   GET_COMMENTS,
   ADD_COMMENTS,
+  EDIT_COMMENTS,
   UPVOTE_COMMENT,
   DOWNVOTE_COMMENT
 } from '../actions/comments'
@@ -18,6 +19,12 @@ export default (state={},action)=>{
         ...newComments
       }
     case ADD_COMMENTS:
+      return{
+        ...state,
+        [comments.id]:comments
+      }
+    case EDIT_COMMENTS:
+      console.log("Reducer: ", comments)
       return{
         ...state,
         [comments.id]:comments

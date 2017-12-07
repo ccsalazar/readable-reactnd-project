@@ -23,6 +23,10 @@ export const downVoteComment = comments => ({
   type:DOWNVOTE_COMMENT,
   comments
 });
+export const receiveEditComment = comments => ({
+  type:EDIT_COMMENTS,
+  comments
+});
 
 //THUNK MIDDLEWARE ASYNC ACTIONS
 export const getCommentsByPostID = (id)=> dispatch =>(
@@ -43,4 +47,10 @@ export const createNewComment = (data)=> dispatch =>(
   ServerAPIUtil
     .addNewComment(data)
     .then(data =>dispatch(addComment(data)))
+);
+
+export const editComment = (data)=> dispatch =>(
+  ServerAPIUtil
+    .editComment(data)
+    .then(data =>dispatch(receiveEditComment(data)))
 );
