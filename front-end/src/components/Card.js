@@ -2,13 +2,18 @@ import React,{Component} from 'react';
 import { Link} from 'react-router-dom';
 import {MdAccountCircle,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
+import {deletePost} from '../actions/posts';
+import {connect} from 'react-redux';
 
 class Card extends Component {
 
 
+  handleDelete(id,e){
+    e.preventDefault();
+    this.props.deletePost(id);
+  }
 
   render(){
-
     const {timestamp,category,author,id,title,body,voteScore,commentCount}=this.props;
     let timeStamp = new Date(timestamp);
     let dateString = timeStamp.toDateString();
@@ -36,10 +41,10 @@ class Card extends Component {
               </div>
             </div>
           </div>
-          <div className="post-card__controls">
-            <Link to="/">
+          <div
+              onClick={this.handleDelete.bind(this,id)}
+              className="post-card__controls">
               <MdDelete className="MdDelete"/>
-            </Link>
           </div>
           <div className="post-card__controls">
             <Link to={`/posts/${id}/edit`}>
@@ -73,4 +78,15 @@ class Card extends Component {
   }
 }
 
-export default Card;
+const mapStateToProps = ({posts}) =>{
+  return{
+    posts
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePost:(id)=>dispatch(deletePost(id))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Card);

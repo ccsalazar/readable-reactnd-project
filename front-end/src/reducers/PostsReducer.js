@@ -4,7 +4,8 @@ import{
   ADD_POST,
   EDIT_POST,
   UPVOTE_POST,
-  DOWNVOTE_POST
+  DOWNVOTE_POST,
+  DELETE_POST
 } from '../actions/posts'
 
 
@@ -46,6 +47,15 @@ export default (state={},action)=>{
       return {
         ...state,
         [posts.id]:posts
+      }
+    case DELETE_POST:
+      const stateArray = Object.values(state);
+      const removeDeletedPost=stateArray.filter(item=>item.id!==posts.id);
+      const newObject = removeDeletedPost.reduce((byId,post)=>{
+        return {...byId,[post.id]:post}
+      },{})
+      return {
+        ...newObject
       }
     default:
       return {...state}
