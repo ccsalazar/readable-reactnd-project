@@ -5,6 +5,7 @@ export const ADD_COMMENTS="ADD_COMMENTS"
 export const EDIT_COMMENTS="EDIT_COMMENTS"
 export const UPVOTE_COMMENT="UPVOTE_COMMENT"
 export const DOWNVOTE_COMMENT="DOWNVOTE_COMMENT"
+export const DELETE_COMMENT="DELETE_COMMENT"
 
 
 export const receiveComments = comments => ({
@@ -25,6 +26,10 @@ export const downVoteComment = comments => ({
 });
 export const receiveEditComment = comments => ({
   type:EDIT_COMMENTS,
+  comments
+});
+export const delComment = comments => ({
+  type:DELETE_COMMENT,
   comments
 });
 
@@ -53,4 +58,9 @@ export const editComment = (data)=> dispatch =>(
   ServerAPIUtil
     .editComment(data)
     .then(data =>dispatch(receiveEditComment(data)))
+);
+export const deleteComment = (id)=> dispatch =>(
+  ServerAPIUtil
+    .deleteComment(id)
+    .then(data =>dispatch(delComment(data)))
 );

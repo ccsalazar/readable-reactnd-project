@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {MdAccountCircle,MdDelete,MdEdit} from 'react-icons/lib/md';
-import {editComment} from '../actions/comments'
+import {editComment} from '../actions/comments';
 import {connect} from 'react-redux';
+import {deleteComment} from '../actions/comments';
 import VoteScore from './VoteScore';
 
 class CommentCard extends Component {
@@ -42,6 +43,11 @@ class CommentCard extends Component {
     e.preventDefault();
     this.props.editComment(this.state.comment)
     this.setState({editButton:false});
+  }
+
+  handleDelete(e){
+    e.preventDefault();
+    this.props.deleteComment(this.props.id);
   }
 
   render(){
@@ -86,7 +92,9 @@ class CommentCard extends Component {
             </div>
           </div>
           <div className="post-card__controls">
-            <MdDelete className="MdDelete"/>
+            <MdDelete
+              onClick={this.handleDelete.bind(this)}
+              className="MdDelete"/>
           </div>
           <div
             onClick={this.handleEditButton.bind(this)}
@@ -113,7 +121,8 @@ const mapStateToProps = ({comments})=>{
 }
 const mapDispatchToProps = dispatch => {
   return{
-    editComment:(data)=>dispatch(editComment(data))
+    editComment:(data)=>dispatch(editComment(data)),
+    deleteComment:(id)=>dispatch(deleteComment(id))
   }
 }
 

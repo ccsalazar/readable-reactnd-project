@@ -3,7 +3,8 @@ import{
   ADD_COMMENTS,
   EDIT_COMMENTS,
   UPVOTE_COMMENT,
-  DOWNVOTE_COMMENT
+  DOWNVOTE_COMMENT,
+  DELETE_COMMENT
 } from '../actions/comments'
 
 
@@ -37,6 +38,15 @@ export default (state={},action)=>{
       return {
         ...state,
         [comments.id]:comments
+      }
+    case DELETE_COMMENT:
+      const stateArray = Object.values(state);
+      const removeDeletedComment=stateArray.filter(item=>item.id!==comments.id);
+      const newObject = removeDeletedComment.reduce((byId,comment)=>{
+        return {...byId,[comment.id]:comment}
+      },{})
+      return {
+        ...newObject
       }
     default:
       return {...state}
