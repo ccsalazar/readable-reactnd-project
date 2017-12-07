@@ -40,7 +40,6 @@ class CommentCard extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log('Submit',this.state.comment)
     this.props.editComment(this.state.comment)
     this.setState({editButton:false});
   }

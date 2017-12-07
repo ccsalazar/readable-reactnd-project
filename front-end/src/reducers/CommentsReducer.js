@@ -24,7 +24,6 @@ export default (state={},action)=>{
         [comments.id]:comments
       }
     case EDIT_COMMENTS:
-      console.log("Reducer: ", comments)
       return{
         ...state,
         [comments.id]:comments
