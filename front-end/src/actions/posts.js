@@ -71,8 +71,13 @@ export const voteOnPost = (id,item,vote)=> dispatch =>(
     dispatch(upVotePost(data)):dispatch(downVotePost(data))
   )
 );
-export const deletePost = (id)=> dispatch =>(
+export const deletePostAndComments = (id)=> dispatch =>{
   ServerAPIUtil
     .deletePost(id)
-    .then(data =>dispatch(delPost(data)))
-);
+    .then(data =>dispatch(delPost(data)));
+  ServerAPIUtil
+    .getCommentsByPostID(id)
+    .then(comments =>{
+      comments.map(comment=>console.log(comment.parentDeleted))
+    });
+};
