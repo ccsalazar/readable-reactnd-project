@@ -43,6 +43,8 @@ class DefaultPost extends Component {
 
 const mapStateToProps = ({posts}) => {
   const postsArr = Object.values(posts);
+  const postsIds = Object.keys(posts);
+  console.log("KEYS: ",postsIds);
   return {
     postsArr
   };

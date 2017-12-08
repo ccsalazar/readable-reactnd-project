@@ -2,13 +2,16 @@ import React,{Component} from 'react';
 import { Link} from 'react-router-dom';
 import {MdAccountCircle,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
-import {deletePostAndComments} from '../actions/posts';
+import {deletePostAndComments,fetchPost} from '../actions/posts';
 import {getCommentsByPostID} from '../actions/comments';
 import {connect} from 'react-redux';
 
 class Card extends Component {
 
 
+  // componentDidMount(){
+  //   this.props.fetchPost(this.props.id);
+  // }
 
   handleDelete(id,e){
     e.preventDefault();
@@ -89,7 +92,8 @@ const mapStateToProps = ({posts,comments}) =>{
 const mapDispatchToProps = dispatch => {
   return {
     deletePostAndComments:(id)=>dispatch(deletePostAndComments(id)),
-    getCommentsByPostID:(id)=>dispatch(getCommentsByPostID(id))
+    getCommentsByPostID:(id)=>dispatch(getCommentsByPostID(id)),
+    fetchPost:(id)=>dispatch(fetchPost(id))
   }
 }
 
