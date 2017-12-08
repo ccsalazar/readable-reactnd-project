@@ -14,7 +14,6 @@ class Card extends Component {
   }
 
   render(){
-    console.log("Card Props: ",this.props.post);
     const {timestamp,category,author,id,title,body,voteScore,commentCount}=this.props.post;
     // let timeStamp = new Date(timestamp);
     // let dateString = timeStamp.toDateString();

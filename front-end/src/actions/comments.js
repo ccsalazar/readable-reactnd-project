@@ -1,4 +1,5 @@
 import * as ServerAPIUtil from '../utils/api';
+import {fetchPost} from './posts';
 
 export const GET_COMMENTS="GET_COMMENTS"
 export const ADD_COMMENTS="ADD_COMMENTS"
@@ -48,19 +49,31 @@ export const voteOnComment = (id,item,vote)=> dispatch =>(
   )
 );
 
-export const createNewComment = (data)=> dispatch =>(
+//ADD NEW COMMENT AND UPDATE PARENT POST VOTESCORE
+export const createNewComment = (data)=> dispatch =>{
   ServerAPIUtil
     .addNewComment(data)
-    .then(data =>dispatch(addComment(data)))
-);
+    .then(data =>{
+      dispatch(addComment(data))
+      dispatch(fetchPost(data.parentId))
+    });
+};
 
 export const editComment = (data)=> dispatch =>(
   ServerAPIUtil
     .editComment(data)
     .then(data =>dispatch(receiveEditComment(data)))
 );
-export const deleteComment = (id)=> dispatch =>(
+
+//DELETE COMMENT AND UPDATE PARENT POST VOTESCORE
+export const deleteComment = (id)=> dispatch =>{
   ServerAPIUtil
     .deleteComment(id)
-    .then(data =>dispatch(delComment(data)))
-);
+    .then(data =>{
+      dispatch(delComment(data))
+      if(!data.parentDeleted)
+        {
+          dispatch(fetchPost(data.parentId))
+        }
+    });
+};

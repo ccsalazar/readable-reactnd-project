@@ -72,6 +72,8 @@ export const voteOnPost = (id,item,vote)=> dispatch =>(
     dispatch(upVotePost(data)):dispatch(downVotePost(data))
   )
 );
+
+//DELETE POST AND ALL CHILD COMMENTS
 export const deletePostAndComments = (id)=> dispatch =>{
   ServerAPIUtil
     .deletePost(id)

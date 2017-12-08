@@ -49,6 +49,7 @@ class CommentCard extends Component {
   handleDelete(e){
     e.preventDefault();
     this.props.deleteComment(this.props.id);
+    // this.props.fetchPost(this.props.parentId);
   }
 
   render(){

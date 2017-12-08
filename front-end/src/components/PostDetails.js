@@ -15,7 +15,6 @@ class PostDetails extends Component {
   }
 
   render(){
-    console.log("rerender");
     const {post,comments}=this.props;
     return(
 
@@ -26,6 +25,7 @@ class PostDetails extends Component {
             id={post.id}
           />
         }
+        <AddComment id={this.props.match.params.id}/>
         {
           comments!== undefined &&
           comments.map((comment,index)=>
@@ -38,8 +38,6 @@ class PostDetails extends Component {
             voteScore={comment.voteScore}
           />)
         }
-      <AddComment
-      id={this.props.match.params.id}/>
       </div>
     );
   }
