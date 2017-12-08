@@ -1,4 +1,5 @@
 import * as ServerAPIUtil from '../utils/api';
+import {deleteComment} from './comments';
 
 //TYPES
 export const GET_POST="GET_POST"
@@ -78,6 +79,10 @@ export const deletePostAndComments = (id)=> dispatch =>{
   ServerAPIUtil
     .getCommentsByPostID(id)
     .then(comments =>{
-      comments.map(comment=>console.log(comment.parentDeleted))
+      comments.forEach(comment=>{
+        if (comment.parentDeleted){
+          dispatch(deleteComment(comment.id))
+        }
+      })
     });
 };
