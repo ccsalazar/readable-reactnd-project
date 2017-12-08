@@ -15,6 +15,7 @@ class PostDetails extends Component {
   }
 
   render(){
+    console.log("rerender");
     const {post,comments}=this.props;
     return(
 
@@ -23,13 +24,6 @@ class PostDetails extends Component {
           post!== undefined &&
             <Card
             id={post.id}
-            timestamp={post.timestamp}
-            title={post.title}
-            body={post.body}
-            author={post.author}
-            category={post.category}
-            voteScore={post.voteScore}
-            commentCount={post.commentCount}
           />
         }
         {
@@ -37,6 +31,7 @@ class PostDetails extends Component {
           comments.map((comment,index)=>
           <CommentCard key={index}
             id={comment.id}
+            parentId={comment.parentId}
             timestamp={comment.timestamp}
             body={comment.body}
             author={comment.author}
@@ -52,13 +47,11 @@ class PostDetails extends Component {
 
 const mapStateToProps = ({posts,comments},ownProps) => {
   const postID = ownProps.match.params.id;
-  const postsArr = Object.values(posts);
-  const post = postsArr.filter(p => p.id===postID);
-
   const commentsArr = Object.values(comments);
   const filteredComments = commentsArr.filter(c=>c.parentId===postID);
+
   return {
-    post:post[0],
+    post:posts[postID],
     comments:filteredComments
   };
 }

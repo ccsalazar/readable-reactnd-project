@@ -3,6 +3,7 @@ import {MdAccountCircle,MdDelete,MdEdit} from 'react-icons/lib/md';
 import {editComment} from '../actions/comments';
 import {connect} from 'react-redux';
 import {deleteComment} from '../actions/comments';
+import {fetchPost} from '../actions/posts';
 import VoteScore from './VoteScore';
 
 class CommentCard extends Component {
@@ -122,7 +123,8 @@ const mapStateToProps = ({comments})=>{
 const mapDispatchToProps = dispatch => {
   return{
     editComment:(data)=>dispatch(editComment(data)),
-    deleteComment:(id)=>dispatch(deleteComment(id))
+    deleteComment:(id)=>dispatch(deleteComment(id)),
+    fetchPost:(id)=>dispatch(fetchPost(id))
   }
 }
 

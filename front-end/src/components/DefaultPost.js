@@ -7,12 +7,11 @@ import {fetchAllPosts} from '../actions/posts';
 
 class DefaultPost extends Component {
 
-
   componentDidMount(){
     this.props.fetchAllPosts();
   }
   render(){
-    const {postsArr}=this.props;
+    const {postsIds}=this.props;
     return(
       <section className="default-post">
           <Link to="/create">
@@ -22,17 +21,10 @@ class DefaultPost extends Component {
           </Link>
         <CategoryTabs />
         {
-          postsArr.map((post,index)=>(
+          postsIds.map(id =>(
           <Card
-            key={index}
-            id={post.id}
-            timestamp={post.timestamp}
-            title={post.title}
-            body={post.body}
-            author={post.author}
-            category={post.category}
-            voteScore={post.voteScore}
-            commentCount={post.commentCount}
+            key={id}
+            id={id}
           />
         ))}
       </section>
@@ -42,11 +34,9 @@ class DefaultPost extends Component {
 }
 
 const mapStateToProps = ({posts}) => {
-  const postsArr = Object.values(posts);
   const postsIds = Object.keys(posts);
-  console.log("KEYS: ",postsIds);
   return {
-    postsArr
+    postsIds
   };
 }
 const mapDispatchToProps = dispatch => ({

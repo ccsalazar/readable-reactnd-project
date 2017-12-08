@@ -8,26 +8,22 @@ import {connect} from 'react-redux';
 
 class Card extends Component {
 
-
-  // componentDidMount(){
-  //   this.props.fetchPost(this.props.id);
-  // }
-
   handleDelete(id,e){
     e.preventDefault();
     this.props.deletePostAndComments(id);
   }
 
   render(){
-    const {timestamp,category,author,id,title,body,voteScore,commentCount}=this.props;
-    let timeStamp = new Date(timestamp);
-    let dateString = timeStamp.toDateString();
-    let hours = timeStamp.getHours();
-    let minutes =timeStamp.getMinutes();
-    let meridiem = hours<12?'AM':'PM';
-    hours = hours===0?hours+=12:hours;
-    hours = hours>12?hours-=12:hours;
-    minutes = ('0'+minutes).slice(-2);
+    console.log("Card Props: ",this.props.post);
+    const {timestamp,category,author,id,title,body,voteScore,commentCount}=this.props.post;
+    // let timeStamp = new Date(timestamp);
+    // let dateString = timeStamp.toDateString();
+    // let hours = timeStamp.getHours();
+    // let minutes =timeStamp.getMinutes();
+    // let meridiem = hours<12?'AM':'PM';
+    // hours = hours===0?hours+=12:hours;
+    // hours = hours>12?hours-=12:hours;
+    // minutes = ('0'+minutes).slice(-2);
 
     return (
       <div className="post-card">
@@ -42,7 +38,8 @@ class Card extends Component {
                 {author}
               </div>
               <div className="post-card__timestamp">
-                <span>{hours}:{minutes} {meridiem} on {dateString}</span>
+                {/* <span>{hours}:{minutes} {meridiem} on {dateString}</span> */}
+                {timestamp}
               </div>
             </div>
           </div>
@@ -83,9 +80,10 @@ class Card extends Component {
   }
 }
 
-const mapStateToProps = ({posts,comments}) =>{
+const mapStateToProps = ({posts,comments},ownProps) =>{
+
   return{
-    posts,
+    post:posts[ownProps.id],
     comments
   }
 }
