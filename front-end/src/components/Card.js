@@ -52,9 +52,9 @@ class Card extends Component {
               <MdEdit className="MdEdit"/>Edit
             </Link>
           </div>
-          <div className="post-card__controls">
+          {/* <div className="post-card__controls">
             <MdComment className="MdComment"/>Comment
-          </div>
+          </div> */}
         </div>
         <div className="post-card__title">
           {title}
@@ -70,7 +70,7 @@ class Card extends Component {
           />
           <div className="post-card__comments">
             <Link to={`/posts/${id}/comments`}>
-            {commentCount} Comments
+            {commentCount} <MdComment className="MdComment"/>
             </Link>
           </div>
         </div>
