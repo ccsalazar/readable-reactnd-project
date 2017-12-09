@@ -11,6 +11,7 @@ class DefaultPost extends Component {
     this.props.fetchAllPosts();
   }
   render(){
+    console.log(this.props);
     const {postsIds}=this.props;
     return(
       <section className="default-post">

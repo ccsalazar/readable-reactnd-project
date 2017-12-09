@@ -14,6 +14,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={DefaultPost}/>
+          <Route exact path="/:category/posts" component={DefaultPost}/>
           <Route path="/posts/:id/comments" component={PostDetails}/>
           <Route path="/posts/:id/edit" component={CreatePost}/>
           <Route path="/create" component={CreatePost}/>
