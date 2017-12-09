@@ -5,7 +5,8 @@ import{
   EDIT_POST,
   UPVOTE_POST,
   DOWNVOTE_POST,
-  DELETE_POST
+  DELETE_POST,
+  GET_POSTS_BY_CATEGORY
 } from '../actions/posts'
 
 
@@ -27,6 +28,13 @@ export default (state={},action)=>{
       return {
         ...state,
         ...newPosts
+      }
+    case GET_POSTS_BY_CATEGORY:
+      const newPostsByCategory = posts.reduce((byId,post)=>{
+        return {...byId,[post.id]:post}
+      },{})
+      return {
+        ...newPostsByCategory
       }
     case ADD_POST:
       return {

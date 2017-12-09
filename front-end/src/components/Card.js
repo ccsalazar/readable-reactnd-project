@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 
 class Card extends Component {
 
+
   handleDelete(id,e){
     e.preventDefault();
     this.props.deletePostAndComments(id);

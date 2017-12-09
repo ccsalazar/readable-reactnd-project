@@ -3,7 +3,7 @@ import CategoryTabs from './CategoryTabs';
 import Card from './Card';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchAllPosts} from '../actions/posts';
+import {fetchAllPosts,fetchPostsByCategory} from '../actions/posts';
 
 class DefaultPost extends Component {
 
@@ -11,7 +11,6 @@ class DefaultPost extends Component {
     this.props.fetchAllPosts();
   }
   render(){
-    console.log(this.props);
     const {postsIds}=this.props;
     return(
       <section className="default-post">
@@ -41,7 +40,8 @@ const mapStateToProps = ({posts}) => {
   };
 }
 const mapDispatchToProps = dispatch => ({
-    fetchAllPosts: ()=>dispatch(fetchAllPosts())
+    fetchAllPosts: ()=>dispatch(fetchAllPosts()),
+    fetchPostsByCategory: (category)=>dispatch(fetchPostsByCategory(category))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(DefaultPost);

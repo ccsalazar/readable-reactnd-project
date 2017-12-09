@@ -50,6 +50,7 @@ export const getCategories = (category) => {
       .then(response=>console.log('Axios Here',response.data));
 }
 
+
 //POST REQUEST
 
 export const addNewPost = (data) => {
