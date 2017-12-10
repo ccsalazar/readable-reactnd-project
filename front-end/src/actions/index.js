@@ -1,3 +1,12 @@
-// import * as ServerAPIUtil from '../utils/api';
-// import * as comments from './comments';
-// import * as posts from './posts';
+import {sortPosts} from './posts';
+export const SET_FILTER="SET_FILTER"
+
+export const setFilter = filter => ({
+  type:SET_FILTER,
+  filter
+});
+
+export const setFilterAndSort = (filter)=>dispatch=>{
+  dispatch(setFilter(filter));
+  dispatch(sortPosts(filter));
+};

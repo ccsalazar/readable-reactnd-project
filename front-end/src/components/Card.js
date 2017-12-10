@@ -16,14 +16,14 @@ class Card extends Component {
 
   render(){
     const {timestamp,category,author,id,title,body,voteScore,commentCount}=this.props.post;
-    // let timeStamp = new Date(timestamp);
-    // let dateString = timeStamp.toDateString();
-    // let hours = timeStamp.getHours();
-    // let minutes =timeStamp.getMinutes();
-    // let meridiem = hours<12?'AM':'PM';
-    // hours = hours===0?hours+=12:hours;
-    // hours = hours>12?hours-=12:hours;
-    // minutes = ('0'+minutes).slice(-2);
+    let timeStamp = new Date(timestamp);
+    let dateString = timeStamp.toDateString();
+    let hours = timeStamp.getHours();
+    let minutes =timeStamp.getMinutes();
+    let meridiem = hours<12?'AM':'PM';
+    hours = hours===0?hours+=12:hours;
+    hours = hours>12?hours-=12:hours;
+    minutes = ('0'+minutes).slice(-2);
 
     return (
       <div className="post-card">
@@ -38,8 +38,8 @@ class Card extends Component {
                 {author}
               </div>
               <div className="post-card__timestamp">
-                {/* <span>{hours}:{minutes} {meridiem} on {dateString}</span> */}
-                {timestamp}
+                <span>{hours}:{minutes} {meridiem} on {dateString}</span>
+                {/* {timestamp} */}
               </div>
             </div>
           </div>
