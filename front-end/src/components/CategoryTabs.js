@@ -16,7 +16,6 @@ class CategoryTabs extends Component {
   }
 
   render(){
-    console.log("Tabs",this.props);
     return (
         <div className="category-tabs">
           <div className="category">

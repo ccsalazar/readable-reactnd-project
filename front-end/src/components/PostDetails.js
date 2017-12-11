@@ -32,11 +32,6 @@ class PostDetails extends Component {
           comments.map((comment,index)=>
           <CommentCard key={index}
             id={comment.id}
-            parentId={comment.parentId}
-            timestamp={comment.timestamp}
-            body={comment.body}
-            author={comment.author}
-            voteScore={comment.voteScore}
           />)
         }
       </div>
@@ -67,3 +62,9 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(PostDetails);
+
+// timestamp={comment.timestamp}
+// body={comment.body}
+// author={comment.author}
+// voteScore={comment.voteScore}
+            // parentId={comment.parentId}

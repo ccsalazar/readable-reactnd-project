@@ -19,8 +19,8 @@ class CommentCard extends Component {
   componentDidMount(){
     this.setState({
       comment:{
-        body:this.props.body,
-        id:this.props.id
+        body:this.props.comment.body,
+        id:this.props.comment.id
       }
     });
   }
@@ -49,12 +49,13 @@ class CommentCard extends Component {
   handleDelete(e){
     e.preventDefault();
     this.props.deleteComment(this.props.id);
-    // this.props.fetchPost(this.props.parentId);
   }
 
   render(){
+    console.log('comment',this.props);
     const {editButton,comment}=this.state
-    const{timestamp,author,id,body,voteScore}=this.props;
+    const{timestamp,author,id,body,voteScore}=this.props.comment;
+
     let timeStamp = new Date(timestamp);
     let dateString = timeStamp.toDateString();
     let hours = timeStamp.getHours();
@@ -116,9 +117,9 @@ class CommentCard extends Component {
     );
   }
 }
-const mapStateToProps = ({comments})=>{
+const mapStateToProps = ({comments},ownProps)=>{
   return {
-    comments
+    comment:comments[ownProps.id]
   }
 }
 const mapDispatchToProps = dispatch => {
