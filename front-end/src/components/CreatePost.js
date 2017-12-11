@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
 import {createNewPost,editPost} from '../actions/posts';
@@ -62,6 +63,7 @@ class CreatePost extends Component {
   }
 
   render(){
+    console.log('post form',this.props);
     const {redirect,mode}=this.state;
     const{author,title,category,body} = this.state.post;
     const pageMode = mode==='edit'?'Edit':'Create';
@@ -135,8 +137,14 @@ class CreatePost extends Component {
   }
 }
 
+CreatePost.propTypes = {
+  posts:PropTypes.object.isRequired,
+  fetchPost:PropTypes.func.isRequired,
+  editPost:PropTypes.func.isRequired,
+  createNewPost:PropTypes.func.isRequired
+}
+
 const mapStateToProps = ({posts,comments},ownProps)=>{
-  // const postID = ownProps.match.params.id;
   return {
     posts
   }

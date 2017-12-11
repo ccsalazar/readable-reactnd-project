@@ -53,7 +53,6 @@ class CommentCard extends Component {
   }
 
   render(){
-    console.log('comment',this.props);
     const {editButton,comment}=this.state
     const{timestamp,author,id,body,voteScore}=this.props.comment;
 
