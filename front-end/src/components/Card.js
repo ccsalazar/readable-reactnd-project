@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import { Link} from 'react-router-dom';
 import {MdAccountCircle,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
-import {deletePostAndComments,fetchPost} from '../actions/posts';
-import {getCommentsByPostID} from '../actions/comments';
+import {deletePostAndComments} from '../actions/posts';
 import {connect} from 'react-redux';
 
 class Card extends Component {
@@ -11,7 +11,7 @@ class Card extends Component {
 
   handleDelete(id,e){
     e.preventDefault();
-    this.props.deletePostAndComments(id);
+    this.props.dispatch(deletePostAndComments(id));
   }
 
   render(){
@@ -53,9 +53,6 @@ class Card extends Component {
               <MdEdit className="MdEdit"/>Edit
             </Link>
           </div>
-          {/* <div className="post-card__controls">
-            <MdComment className="MdComment"/>Comment
-          </div> */}
         </div>
         <div className="post-card__title">
           {title}
@@ -80,19 +77,16 @@ class Card extends Component {
   }
 }
 
+Card.propTypes = {
+  id:PropTypes.string.isRequired,
+  post:PropTypes.object.isRequired,
+  dispatch:PropTypes.func.isRequired
+}
+
 const mapStateToProps = ({posts,comments},ownProps) =>{
-
   return{
-    post:posts[ownProps.id],
-    comments
-  }
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    deletePostAndComments:(id)=>dispatch(deletePostAndComments(id)),
-    getCommentsByPostID:(id)=>dispatch(getCommentsByPostID(id)),
-    fetchPost:(id)=>dispatch(fetchPost(id))
+    post:posts[ownProps.id]
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Card);
+export default connect(mapStateToProps)(Card);
