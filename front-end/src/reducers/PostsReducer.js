@@ -5,11 +5,11 @@ import{
   EDIT_POST,
   UPVOTE_POST,
   DOWNVOTE_POST,
-  DELETE_POST
+  DELETE_POST,
+  GET_POSTS_BY_CATEGORY,
+  SORT_POSTS
 } from '../actions/posts'
 
-
-// const postsReducerDefaultState = {};
 
 export default (state={},action)=>{
 
@@ -27,6 +27,13 @@ export default (state={},action)=>{
       return {
         ...state,
         ...newPosts
+      }
+    case GET_POSTS_BY_CATEGORY:
+      const newPostsByCategory = posts.reduce((byId,post)=>{
+        return {...byId,[post.id]:post}
+      },{})
+      return {
+        ...newPostsByCategory
       }
     case ADD_POST:
       return {
@@ -56,6 +63,23 @@ export default (state={},action)=>{
       },{})
       return {
         ...newObject
+      }
+    case SORT_POSTS:
+      const sortedState = Object.values(state)
+      .sort((a,b)=>{
+        if (action.filter==="mostPopular")
+          return b.voteScore - a.voteScore;
+        if (action.filter==="leastPopular")
+          return a.voteScore - b.voteScore;
+        if (action.filter==="latestPost")
+          return b.timestamp - a.timestamp;
+        return 0;
+      });
+      const newSorted = sortedState.reduce((byId,post)=>{
+        return {...byId,[post.id]:post}
+      },{})
+      return{
+        ...newSorted
       }
     default:
       return {...state}

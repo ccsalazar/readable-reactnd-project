@@ -4,11 +4,14 @@ import {deleteComment} from './comments';
 //TYPES
 export const GET_POST="GET_POST"
 export const GET_POSTS="GET_POSTS"
+export const GET_POSTS_BY_CATEGORY="GET_POSTS_BY_CATEGORY"
 export const ADD_POST="ADD_POST"
 export const EDIT_POST="EDIT_POST"
 export const UPVOTE_POST="UPVOTE_POST"
 export const DOWNVOTE_POST="DOWNVOTE_POST"
 export const DELETE_POST="DELETE_POST"
+export const SORT_POSTS="SORT_POSTS"
+
 
 //ACTION CREATORS
 export const receivePost = posts => ({
@@ -17,6 +20,10 @@ export const receivePost = posts => ({
 });
 export const receivePosts = posts => ({
   type:GET_POSTS,
+  posts
+});
+export const receivePostsByCategory = posts => ({
+  type:GET_POSTS_BY_CATEGORY,
   posts
 });
 export const addPost = posts => ({
@@ -40,19 +47,38 @@ export const delPost = posts => ({
   posts
 });
 
+export const sortPosts = filter =>({
+  type:SORT_POSTS,
+  filter
+})
+
 
 //THUNKS MIDDLEWARE ASYNC ACTIONS
-export const fetchPost = (id)=> dispatch =>(
+export const fetchPost = (id)=> (dispatch,getState) =>{
   ServerAPIUtil
     .getPostsById(id)
     .then(posts =>dispatch(receivePost(posts))
   )
-);
-export const fetchAllPosts = ()=> dispatch =>(
+};
+export const fetchAllPosts = ()=> (dispatch,getState) =>{
+  const {sort} = getState();
   ServerAPIUtil
     .getALLPosts()
-    .then(posts => dispatch(receivePosts(posts)))
-);
+    .then(posts =>{
+      dispatch(receivePosts(posts))
+      dispatch(sortPosts(sort.filter))
+    })
+};
+
+export const fetchPostsByCategory = (category)=> (dispatch,getState) =>{
+  const {sort}=getState();
+  ServerAPIUtil
+    .getPostsByCategory(category)
+    .then(posts => {
+      dispatch(receivePostsByCategory(posts))
+      dispatch(sortPosts(sort.filter))
+    })
+};
 
 export const createNewPost = (post)=> dispatch =>(
   ServerAPIUtil
