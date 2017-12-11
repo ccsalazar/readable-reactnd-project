@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
 import {connect} from 'react-redux';
 import {voteOnPost} from '../actions/posts';
@@ -6,10 +7,12 @@ import {voteOnComment} from '../actions/comments';
 
 class VoteScore extends Component {
 
-
+//CHECK IF VOTING ON COMMENTS OR POSTS
 handleVoting (vote,e){
-  const{id,voteItem,voteOnPost,voteOnComment}=this.props;
-  voteItem==='posts'? voteOnPost(id,voteItem,vote):voteOnComment(id,voteItem,vote);
+  const{id,voteItem,dispatch}=this.props;
+  voteItem==='posts'?
+    dispatch(voteOnPost(id,voteItem,vote))
+    :dispatch(voteOnComment(id,voteItem,vote));
 }
 
   render(){
@@ -29,15 +32,11 @@ handleVoting (vote,e){
   }
 }
 
-const mapStateToProps = ({posts,comments},ownProps)=>{
-  return {
-    posts,
-    comments
-  }
+VoteScore.propTypes = {
+  id:PropTypes.string.isRequired,
+  voteItem:PropTypes.string.isRequired,
+  voteScore:PropTypes.number.isRequired,
+  dispatch:PropTypes.func.isRequired
 }
-const mapDispatchToProps = dispatch => ({
-  voteOnPost:(id,item,vote)=>dispatch(voteOnPost(id,item,vote)),
-  voteOnComment:(id,item,vote)=>dispatch(voteOnComment(id,item,vote))
-});
 
-export default connect(mapStateToProps,mapDispatchToProps)(VoteScore);
+export default connect()(VoteScore);
