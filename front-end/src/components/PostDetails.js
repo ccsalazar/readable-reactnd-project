@@ -16,16 +16,21 @@ class PostDetails extends Component {
 
   render(){
     const {post,comments}=this.props;
+    console.log(this.props);
+    // console.log(post.id,"===??",this.props.match.params.id);
     return(
 
       <div className="post-details">
         {
           post!== undefined &&
             <Card
-            id={post.id}
-          />
+            id={post.id}/>
         }
-        <AddComment id={this.props.match.params.id}/>
+        {
+          post!==undefined&&
+          <AddComment id={post.id}/>
+        }
+
         {
           comments!== undefined &&
           comments.map((comment,index)=>
