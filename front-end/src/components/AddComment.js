@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createNewComment} from '../actions/comments';
 
@@ -26,7 +27,7 @@ componentDidMount(){
 
 handleSubmit(e){
   e.preventDefault();
-  this.props.createNewComment(this.state.comment);
+  this.props.dispatch(createNewComment(this.state.comment));
   this.setState({
     comment:{
       ...this.state.comment,
@@ -74,18 +75,9 @@ handleInputChange(e){
   }
 }
 
-
-const mapStateToProps = ({posts,comments})=>{
-  const postsArr=Object.values(posts);
-  return {
-    postsArr
-  }
+AddComment.propTypes = {
+  id:PropTypes.string.isRequired,
+  dispatch:PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = dispatch => {
-  return{
-    createNewComment:(data)=>dispatch(createNewComment(data))
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(AddComment);
+export default connect()(AddComment);

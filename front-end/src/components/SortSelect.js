@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-// import {fetchAllPosts} from '../actions/posts';
 import {setFilterAndSort} from '../actions/index';
 
 class SortSelect extends Component {
@@ -36,5 +36,7 @@ class SortSelect extends Component {
     );
   }
 }
-
+SortSelect.propTypes ={
+  dispatch:PropTypes.func.isRequired
+}
 export default connect()(SortSelect);

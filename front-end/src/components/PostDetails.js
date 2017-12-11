@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
@@ -16,21 +17,16 @@ class PostDetails extends Component {
 
   render(){
     const {post,comments}=this.props;
-    console.log(this.props);
-    // console.log(post.id,"===??",this.props.match.params.id);
     return(
-
       <div className="post-details">
         {
           post!== undefined &&
-            <Card
-            id={post.id}/>
+            <Card id={post.id}/>
         }
         {
-          post!==undefined&&
-          <AddComment id={post.id}/>
+          post!== undefined&&
+            <AddComment id={post.id}/>
         }
-
         {
           comments!== undefined &&
           comments.map((comment,index)=>
@@ -46,6 +42,12 @@ class PostDetails extends Component {
       </div>
     );
   }
+}
+PostDetails.propTypes={
+  post:PropTypes.object.isRequired,
+  comments:PropTypes.array.isRequired,
+  fetchPost:PropTypes.func.isRequired,
+  getComments:PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({posts,comments},ownProps) => {
