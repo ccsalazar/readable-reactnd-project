@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import CategoryTabs from './CategoryTabs';
 import Card from './Card';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchAllPosts,fetchPostsByCategory} from '../actions/posts';
+import {fetchAllPosts} from '../actions/posts';
 
 class DefaultPost extends Component {
 
@@ -30,7 +31,11 @@ class DefaultPost extends Component {
       </section>
     );
   }
+}
 
+DefaultPost.propTypes = {
+  postsIds:PropTypes.array.isRequired,
+  fetchAllPosts:PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({posts}) => {
@@ -39,9 +44,9 @@ const mapStateToProps = ({posts}) => {
     postsIds
   };
 }
+
 const mapDispatchToProps = dispatch => ({
-    fetchAllPosts: ()=>dispatch(fetchAllPosts()),
-    fetchPostsByCategory: (category)=>dispatch(fetchPostsByCategory(category))
+    fetchAllPosts: ()=>dispatch(fetchAllPosts())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(DefaultPost);
