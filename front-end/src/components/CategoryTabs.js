@@ -1,8 +1,9 @@
 import React,{ Component } from 'react';
-import SortSelect from './SortSelect';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import {fetchPostsByCategory,fetchAllPosts} from '../actions/posts';
 import {connect} from 'react-redux';
+import {fetchPostsByCategory,fetchAllPosts} from '../actions/posts';
+import SortSelect from './SortSelect';
 
 class CategoryTabs extends Component {
 
@@ -15,6 +16,7 @@ class CategoryTabs extends Component {
   }
 
   render(){
+    console.log("Tabs",this.props);
     return (
         <div className="category-tabs">
           <div className="category">
@@ -43,6 +45,12 @@ class CategoryTabs extends Component {
         </div>
     );
   }
+}
+
+CategoryTabs.propTypes = {
+  posts:PropTypes.object.isRequired,
+  fetchPostsByCategory:PropTypes.func.isRequired,
+  fetchAllPosts:PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({posts})=>{
