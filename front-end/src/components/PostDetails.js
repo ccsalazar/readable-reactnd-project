@@ -62,9 +62,3 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(PostDetails);
-
-// timestamp={comment.timestamp}
-// body={comment.body}
-// author={comment.author}
-// voteScore={comment.voteScore}
-            // parentId={comment.parentId}

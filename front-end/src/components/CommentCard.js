@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import {MdAccountCircle,MdDelete,MdEdit} from 'react-icons/lib/md';
 import {editComment} from '../actions/comments';
 import {connect} from 'react-redux';
@@ -117,6 +118,15 @@ class CommentCard extends Component {
     );
   }
 }
+
+CommentCard.propTypes = {
+  id:PropTypes.string.isRequired,
+  comment:PropTypes.object.isRequired,
+  deleteComment:PropTypes.func.isRequired,
+  editComment:PropTypes.func.isRequired,
+  fetchPost:PropTypes.func.isRequired
+}
+
 const mapStateToProps = ({comments},ownProps)=>{
   return {
     comment:comments[ownProps.id]
