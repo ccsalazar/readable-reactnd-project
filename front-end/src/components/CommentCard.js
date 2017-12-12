@@ -43,7 +43,9 @@ class CommentCard extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.editComment(this.state.comment)
+    if (this.state.comment.body){
+      this.props.editComment(this.state.comment)
+    }
     this.setState({editButton:false});
   }
 

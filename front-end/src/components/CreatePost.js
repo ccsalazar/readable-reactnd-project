@@ -11,12 +11,13 @@ class CreatePost extends Component {
     post:{
       author: '',
       title:'',
-      category:'',
+      category:'none',
       body:'',
       id:''
     },
     redirect:false,
-    mode:''
+    mode:'',
+    submitError:false
   }
 
   //CHECKS IF EDIT OR CREATE FORM
@@ -31,26 +32,34 @@ class CreatePost extends Component {
 
   // USED TO FILL EDIT FORM WHEN FETCHED POST IS RECEIVED
   componentWillReceiveProps(nextProps){
-    const postIdValid = this.props.match.params.id;
-    const {author,title,category,body,id} = nextProps.posts[postIdValid];
-    this.setState({
-      post:{
-        author:author,
-        title:title,
-        category:category,
-        body:body,
-        id:id
-      }
-    })
+    if(this.state.mode==='edit'){
+      const postIdValid = this.props.match.params.id;
+      const {author,title,category,body,id} = nextProps.posts[postIdValid];
+      this.setState({
+        post:{
+          author:author,
+          title:title,
+          category:category,
+          body:body,
+          id:id
+        }
+      });
+    }
   }
 
   handleSubmit (e){
     e.preventDefault();
     const{createNewPost,editPost}=this.props;
     const {mode,post}=this.state;
-    mode==='create'?createNewPost(post):editPost(post);
-    this.setState({redirect:true});
+    const {author,title,category,body}=this.state.post;
+    if (author && title && category!=='none' && body){
+      mode==='create'?createNewPost(post):editPost(post);
+      this.setState({redirect:true});
+    } else {
+      this.setState({submitError:true});
+    }
   }
+
   handleInputChange(e){
     const name = e.target.name;
     const value = e.target.value;
@@ -63,8 +72,8 @@ class CreatePost extends Component {
   }
 
   render(){
-    console.log('post form',this.props);
-    const {redirect,mode}=this.state;
+    console.log(this.state.post);
+    const {redirect,mode,submitError}=this.state;
     const{author,title,category,body} = this.state.post;
     const pageMode = mode==='edit'?'Edit':'Create';
     return(
@@ -72,6 +81,10 @@ class CreatePost extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-container">
             <h1>{pageMode} Post</h1>
+            {
+              submitError &&
+                <h1>please complete all fields</h1>
+            }
             <div className="form-row">
               <div className="form-field">
                 Name:
@@ -107,7 +120,7 @@ class CreatePost extends Component {
               <div className="select-category">
                 <select
                   name="category"
-                  value={category?category:'none'}
+                  value={category}
                   onChange={this.handleInputChange.bind(this)}>
                   <option disabled value="none">None</option>
                   <option value="react">React</option>
