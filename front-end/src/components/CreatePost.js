@@ -51,8 +51,8 @@ class CreatePost extends Component {
     e.preventDefault();
     const{createNewPost,editPost}=this.props;
     const {mode,post}=this.state;
-    const {author,title,category,body}=this.state.post;
-    if (author && title && category!=='none' && body){
+    const {category}=this.state.post;
+    if (category!=='none'){
       mode==='create'?createNewPost(post):editPost(post);
       this.setState({redirect:true});
     } else {
@@ -72,73 +72,66 @@ class CreatePost extends Component {
   }
 
   render(){
-    console.log(this.state.post);
     const {redirect,mode,submitError}=this.state;
     const{author,title,category,body} = this.state.post;
     const pageMode = mode==='edit'?'Edit':'Create';
     return(
-      <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <div className="form-container">
-            <h1>{pageMode} Post</h1>
-            {
-              submitError &&
-                <h1>please complete all fields</h1>
-            }
-            <div className="form-row">
-              <div className="form-field">
-                Name:
-              </div>
-              <div className="form-input">
-                <input
-                  type="text"
-                  name="author"
-                  value={author}
-                  onChange={this.handleInputChange.bind(this)}
-                  placeholder="Enter Full Name.."
-                />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="form-field">
-                Title:
-              </div>
-              <div className="form-input">
-                <input
-                  type="text"
-                  name="title"
-                  value={title}
-                  onChange={this.handleInputChange.bind(this)}
-                  placeholder="Enter Post Title.."
-                />
-              </div>
-            </div>
-            <div className='form-row'>
-              <div className="form-field">
-                Category:
-              </div>
-              <div className="select-category">
-                <select
-                  name="category"
-                  value={category}
-                  onChange={this.handleInputChange.bind(this)}>
-                  <option disabled value="none">None</option>
-                  <option value="react">React</option>
-                  <option value="redux">Redux</option>
-                  <option value="udacity">Udacity</option>
-                </select>
-              </div>
-            </div>
-            <div className="form-body">
+      <div className="post-form">
+        <h1 className="page-mode">{pageMode} Post</h1>
+        {
+          submitError &&
+          <div className="error__msg">
+            <h3>please pick a category</h3>
+          </div>
+        }
+        <form
+          className="form"
+          onSubmit={this.handleSubmit.bind(this)}>
+          <div className="form__group">
+            <input
+              id="author"
+              className="form__input"
+              type="text"
+              name="author"
+              value={author}
+              onChange={this.handleInputChange.bind(this)}
+              placeholder="Full name"
+              required
+            />
+            <label htmlFor="author" className="form__label">Full name</label>
+          </div>
+          <div className="form__group">
+            <input
+              id="title"
+              className="form__input"
+              type="text"
+              name="title"
+              value={title}
+              onChange={this.handleInputChange.bind(this)}
+              placeholder="Title"
+              required
+            />
+            <label htmlFor="title" className="form__label">Title</label>
+          </div>
+          <div className="form__group">
+            <select
+              className="form__select"
+              name="category"
+              value={category}
+              onChange={this.handleInputChange.bind(this)}>
+              <option disabled hidden value="none">Category...</option>
+              <option value="react">React</option>
+              <option value="redux">Redux</option>
+              <option value="udacity">Udacity</option>
+            </select>
+          </div>
               <textarea
+                className="form__textarea"
                 name="body"
                 value={body}
-                onChange={this.handleInputChange.bind(this)}/>
-            </div>
-            <div>
-              <input type="submit" value="Submit"/>
-            </div>
-          </div>
+                onChange={this.handleInputChange.bind(this)}
+                required/>
+              <input className="form__submit" type="submit" value="Submit"/>
         </form>
         {
           redirect && (

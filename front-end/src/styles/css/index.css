@@ -138,29 +138,86 @@ body {
   border-bottom: 0.3rem solid dodgerblue;
   color: #fff; }
 
-.form-container {
-  padding: 1rem;
-  margin: 0 3rem;
-  width: 40%; }
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
 
-.form-row {
-  margin-bottom: 1rem;
-  content: "";
-  display: table;
-  clear: both; }
+.form__input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 60%;
+  display: block; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(30, 144, 255, 0.1);
+    border-bottom: 3px solid dodgerblue; }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #ff5252; }
 
-.form-field {
-  display: inline-block;
-  float: left;
-  margin-right: 1rem; }
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s; }
 
-.form-input {
-  display: inline-block;
-  float: right; }
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
 
-.select-category {
-  display: inline-block;
-  float: right; }
+.form__select {
+  display: block;
+  font-size: 1.5rem;
+  padding: 20rem 2rem;
+  font-family: inherit;
+  border: none; }
+  .form__select:focus {
+    outline: none; }
+
+.form__textarea {
+  width: 60%;
+  height: 20rem;
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  font-family: inherit;
+  display: block;
+  border-bottom: 3px solid transparent;
+  margin-bottom: 2rem; }
+  .form__textarea:focus {
+    outline: none;
+    border-bottom: 3px solid dodgerblue; }
+  .form__textarea:focus:invalid {
+    border-bottom: 3px solid #ff5252; }
+
+.form__submit {
+  font-size: 1.5rem;
+  background: dodgerblue;
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem; }
+  .form__submit:hover {
+    font-size: 2rem; }
+  .form__submit:focus {
+    outline: none; }
+
+.error__msg {
+  border: 3px solid #ff5252;
+  border-radius: 3px;
+  width: 60%;
+  margin-bottom: 2rem;
+  text-align: center; }
+
+.post-form {
+  max-width: 70rem;
+  margin: 2rem auto; }
+
+.page-mode {
+  margin-bottom: 2rem; }
 
 .sort-menu {
   font-size: 2rem;
