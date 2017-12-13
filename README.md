@@ -20,7 +20,7 @@ then
 
 # Front-End
 
-After starting the API server, cd into the front-end directory and run the following commands:
+After starting the API server, open a new terminal window and cd into the front-end directory. Run the following commands to launch the application:
 
 * `npm install`
 * `npm start`
