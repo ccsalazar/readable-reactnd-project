@@ -72,6 +72,7 @@ class CommentCard extends Component {
       postBody = <div className="post-card__body">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
+            className="edit-comment"
             name="body"
             value={comment.body}
             onChange={this.handleEditBody.bind(this)}

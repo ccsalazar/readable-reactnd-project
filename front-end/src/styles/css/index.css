@@ -68,6 +68,18 @@ body {
     .comment__input:focus:invalid {
       border-bottom: 3px solid #ff5252; }
 
+.edit-comment {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: .5rem 1rem;
+  font-family: inherit;
+  border: 1px solid #999999;
+  color: #fff;
+  background: transparent;
+  border-radius: 10px; }
+  .edit-comment:focus {
+    outline: none; }
+
 .btn {
   font-size: 1.5rem;
   font-family: inherit;
