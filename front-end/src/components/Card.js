@@ -72,7 +72,7 @@ state={
           voteScore={voteScore}
           />
           <div className="post-card__comments">
-            <Link to={`/posts/${id}/comments`}>
+            <Link to={`/${category}/${id}`}>
             {commentCount} <MdComment className="MdComment"/>
             </Link>
           </div>
