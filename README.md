@@ -7,9 +7,9 @@ An application built using React + Redux. This application follows the content a
 
 To install and start the API server, cd into the api-server directory and run the following commands:
 
-* `npm install`
+* `npm install`__
 or
-* `yarn`
+* `yarn`__
 then
 * `node server`
 
@@ -18,7 +18,7 @@ then
 After starting the API server, cd into the front-end directory and run the following commands:
 
 * `npm install`
-* `npm start`
+* `npm start`__
 or
 * `yarn`
 * `yarn start`
