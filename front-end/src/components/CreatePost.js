@@ -131,7 +131,7 @@ class CreatePost extends Component {
                 value={body}
                 onChange={this.handleInputChange.bind(this)}
                 required/>
-              <input className="form__submit" type="submit" value="Submit"/>
+              <input className="btn" type="submit" value="Submit"/>
         </form>
         {
           redirect && (
