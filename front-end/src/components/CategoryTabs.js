@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchPostsByCategory,fetchAllPosts} from '../actions/posts';
 import SortSelect from './SortSelect';
@@ -18,29 +18,39 @@ class CategoryTabs extends Component {
   render(){
     return (
         <div className="category-tabs">
-          <div className="category">
-            <Link to="/" onClick={this.handleFetchPost.bind(this,'all')} >
+            <NavLink
+              className="category__non-active"
+              activeClassName="category__active"
+              exact to="/"
+              onClick={this.handleFetchPost.bind(this,'all')}
+            >
               All
-            </Link>
-          </div>
-          <div className="category">
-            <Link to="/react/posts" onClick={this.handleFetchPost.bind(this,'react')}>
+            </NavLink>
+            <NavLink
+              className="category__non-active"
+              activeClassName="category__active"
+              to="/react/posts"
+              onClick={this.handleFetchPost.bind(this,'react')}
+            >
               React
-            </Link>
-          </div>
-          <div className="category">
-            <Link to="/redux/posts" onClick={this.handleFetchPost.bind(this,'redux')}>
+            </NavLink>
+            <NavLink
+              className="category__non-active"
+              activeClassName="category__active"
+              to="/redux/posts"
+              onClick={this.handleFetchPost.bind(this,'redux')}
+            >
               Redux
-            </Link>
-          </div>
-          <div className="category">
-            <Link to="/udacity/posts" onClick={this.handleFetchPost.bind(this,'udacity')}>
+            </NavLink>
+            <NavLink
+              className="category__non-active"
+              activeClassName="category__active"
+              to="/udacity/posts"
+              onClick={this.handleFetchPost.bind(this,'udacity')}
+            >
               Udacity
-            </Link>
-          </div>
-          <div className="category">
+            </NavLink>
             <SortSelect />
-          </div>
         </div>
     );
   }

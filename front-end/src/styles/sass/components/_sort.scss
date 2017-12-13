@@ -1,14 +1,12 @@
 .sort{
+  display:inline-block;
+  float:right;
   &-menu {
-    font-size: 2rem;
-    color:$color-grey-light;
-    background-color: transparent;
-    border:none;
-    outline:none;
-
-    &:hover{
+    font-size: 1.5rem;
+    font-family: inherit;
     color:$color-white;
-    }
-    
+    background-color: transparent;
+    border-radius: 1.5rem;
+    outline:none;
   }
 }

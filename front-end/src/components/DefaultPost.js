@@ -16,9 +16,11 @@ class DefaultPost extends Component {
     return(
       <section className="default-post">
           <Link to="/create">
-            <div className="btn">
+          <div className="page-width">
+            <button className="btn__new-post btn">
               Create New Post
-            </div>
+            </button>
+          </div>
           </Link>
         <CategoryTabs />
         {

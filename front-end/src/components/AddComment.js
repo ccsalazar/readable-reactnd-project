@@ -52,23 +52,29 @@ handleInputChange(e){
   render(){
     const {body,author}=this.state.comment
     return(
-      <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+      <div class="add-comment">
+        <form
+          className="comment"
+          onSubmit={this.handleSubmit.bind(this)}>
           <input
+            className="comment__input"
             type="text"
-            placeholder="Name..."
+            placeholder="name"
             name="author"
             value={author}
             onChange={this.handleInputChange.bind(this)}
+            required
           />
           <input
+            className="comment__input"
             type="text"
-            placeholder="Write a comment..."
+            placeholder="write a comment"
             name="body"
             value={body}
             onChange={this.handleInputChange.bind(this)}
+            required
           />
-          <input type="submit" value="Submit"/>
+          <input className="btn" type="submit" value="Submit"/>
         </form>
       </div>
     )

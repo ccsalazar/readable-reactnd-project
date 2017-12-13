@@ -45,24 +45,46 @@ body {
   letter-spacing: .6rem;
   font-weight: 600; }
 
+.add-comment {
+  margin: 2rem auto;
+  width: 60%;
+  content: "";
+  display: table;
+  clear: both; }
+
+.comment {
+  float: right; }
+  .comment__input {
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    font-family: inherit;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-right: 1rem;
+    border-radius: 10px; }
+    .comment__input:focus {
+      outline: none;
+      border-bottom: 3px solid dodgerblue; }
+    .comment__input:focus:invalid {
+      border-bottom: 3px solid #ff5252; }
+
 .btn {
-  margin-top: 1rem;
-  margin-right: 3rem;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-  background-color: dodgerblue;
-  color: #fff;
-  width: 15rem;
-  text-align: center;
-  border-radius: .8rem;
-  float: right;
+  font-size: 1.5rem;
+  font-family: inherit;
+  background: transparent;
+  color: #777777;
+  border-radius: 10px;
+  padding: .5rem 1rem;
   transition: all .2s; }
   .btn:hover {
-    color: #000; }
+    font-size: 1.7rem;
+    color: #fff; }
+  .btn:focus {
+    outline: none; }
 
 .post-card {
   margin: 1rem auto;
-  width: 95%;
+  width: 60%;
   padding: 1rem;
   border-radius: .5rem;
   background-color: #2e2d2b;
@@ -118,25 +140,34 @@ body {
 
 .category-tabs {
   margin: 1rem auto;
-  width: 95%;
-  font-size: 2rem;
+  width: 60%;
+  font-size: 1.5rem;
   font-weight: 500;
-  line-height: 4rem;
   content: "";
   display: table;
   clear: both; }
 
-.category {
-  width: 20%;
+.category__non-active {
+  width: 6rem;
   text-align: center;
   border-bottom: .3rem solid transparent;
   transition: all .2s;
-  color: #777777;
+  color: #fff;
+  display: inline-block;
+  transition: all .3s; }
+  .category__non-active:hover {
+    border-bottom: 0.3rem solid dodgerblue;
+    color: #ff5252; }
+
+.category__active {
+  width: 6rem;
+  text-align: center;
+  border-bottom: 0.3rem solid dodgerblue;
   display: inline-block; }
 
-.category:hover {
-  border-bottom: 0.3rem solid dodgerblue;
-  color: #fff; }
+.page-width {
+  width: 60%;
+  margin: 2rem auto; }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
@@ -219,14 +250,16 @@ body {
 .page-mode {
   margin-bottom: 2rem; }
 
-.sort-menu {
-  font-size: 2rem;
-  color: #777777;
-  background-color: transparent;
-  border: none;
-  outline: none; }
-  .sort-menu:hover {
-    color: #fff; }
+.sort {
+  display: inline-block;
+  float: right; }
+  .sort-menu {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 1.5rem;
+    outline: none; }
 
 .header {
   height: 6.4rem;

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
-import {TiThumbsUp,TiThumbsDown} from 'react-icons/lib/ti';
+import {TiArrowUpThick,TiArrowDownThick} from 'react-icons/lib/ti';
 import {connect} from 'react-redux';
 import {voteOnPost} from '../actions/posts';
 import {voteOnComment} from '../actions/comments';
@@ -20,12 +20,12 @@ handleVoting (vote,e){
       <div className="post-card__votes">
         <span
           className="TiThumbsUp icon-clickable"
-          onClick={this.handleVoting.bind(this,'upVote')}><TiThumbsUp />
+          onClick={this.handleVoting.bind(this,'upVote')}><TiArrowUpThick />
         </span>
         {this.props.voteScore}
         <span
           className="TiThumbsDown icon-clickable"
-          onClick={this.handleVoting.bind(this,'downVote')}><TiThumbsDown/>
+          onClick={this.handleVoting.bind(this,'downVote')}><TiArrowDownThick/>
         </span>
       </div>
     )

@@ -1,21 +1,37 @@
 .category-tabs{
   margin:1rem auto;
   width:$page-content-width;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  line-height: 4rem;
+  // line-height: 4rem;
   @include clearfix;
 }
 .category {
-  width:20%;
-  text-align: center;
-  border-bottom:.3rem solid transparent;
-  transition: all .2s;
-  color:$color-grey-light;
-  display:inline-block;
+
+  &__non-active{
+    width:6rem;
+    text-align: center;
+    border-bottom:.3rem solid transparent;
+    transition: all .2s;
+    color:$color-white;
+    display:inline-block;
+    transition:all .3s;
+    &:hover {
+      border-bottom: .3rem solid $color-blue;
+      color:$color-primary-orange;
+    }
+  }
+  &__active{
+    width:6rem;
+    text-align: center;
+    border-bottom:.3rem solid $color-blue;
+    // color:$color-primary-orange;
+    display:inline-block;
+  }
 }
 
-.category:hover {
-  border-bottom: .3rem solid $color-blue;
-  color:$color-white;
+.page-width{
+  width:$page-content-width;
+  margin:2rem auto;
+
 }

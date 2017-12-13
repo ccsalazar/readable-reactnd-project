@@ -1,0 +1,30 @@
+.add-comment{
+  margin:2rem auto;
+  width:$page-content-width;
+  @include clearfix;
+}
+
+.comment{
+  float:right;
+
+  &__input{
+    font-size: 1.5rem;
+    padding:.5rem 1rem;
+    font-family: inherit;
+    border:none;
+    border-bottom:3px solid transparent;
+    margin-right: 1rem;
+    border-radius: 10px;
+
+    &:focus{
+      outline:none;
+      border-bottom:3px solid $color-blue;
+    }
+
+    &:focus:invalid{
+      border-bottom:3px solid $color-primary-orange;
+    }
+
+  }
+
+}
