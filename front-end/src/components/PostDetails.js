@@ -39,7 +39,7 @@ class PostDetails extends Component {
   }
 }
 PostDetails.propTypes={
-  post:PropTypes.object.isRequired,
+  post:PropTypes.object,
   comments:PropTypes.array.isRequired,
   fetchPost:PropTypes.func.isRequired,
   getComments:PropTypes.func.isRequired

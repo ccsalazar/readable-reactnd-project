@@ -5,8 +5,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-brand">
-        <h1 className="header-title">
-        <Link to="/">Redux Room</Link>
+        <h1>
+        <Link
+          className="header-title"
+          to="/">Redduxit</Link>
         </h1>
       </div>
     </header>

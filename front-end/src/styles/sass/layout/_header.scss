@@ -1,5 +1,10 @@
 .header {
   height:6.4rem;
   text-align: center;
-  border-bottom: 1px solid $color-grey-light;
+  border-bottom: 2px solid $color-grey-light;
+  color:white;
+
+  &-title{
+    color:$color-white;
+  }
 }

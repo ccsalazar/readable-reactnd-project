@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import { Link} from 'react-router-dom';
+import {Redirect} from 'react-router';
 import {MdAccountCircle,MdDelete,MdEdit,MdComment} from 'react-icons/lib/md'
 import VoteScore from './VoteScore';
 import {deletePostAndComments} from '../actions/posts';
@@ -8,14 +9,19 @@ import {connect} from 'react-redux';
 
 class Card extends Component {
 
+state={
+  redirect:false
+}
 
   handleDelete(id,e){
     e.preventDefault();
     this.props.dispatch(deletePostAndComments(id));
+    this.setState({redirect:true});
   }
 
   render(){
     const {timestamp,category,author,id,title,body,voteScore,commentCount}=this.props.post;
+    const{redirect}=this.state;
     let timeStamp = new Date(timestamp);
     let dateString = timeStamp.toDateString();
     let hours = timeStamp.getHours();
@@ -39,7 +45,6 @@ class Card extends Component {
               </div>
               <div className="post-card__timestamp">
                 <span>{hours}:{minutes} {meridiem} on {dateString}</span>
-                {/* {timestamp} */}
               </div>
             </div>
           </div>
@@ -72,6 +77,11 @@ class Card extends Component {
             </Link>
           </div>
         </div>
+        {
+          redirect && (
+            <Redirect to="/" />
+          )
+        }
       </div>
     )
   }
