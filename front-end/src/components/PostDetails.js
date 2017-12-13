@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {Redirect} from 'react-router';
 import Card from './Card';
 import CommentCard from './CommentCard';
 import { connect } from 'react-redux';
@@ -9,14 +10,25 @@ import AddComment from './AddComment';
 
 class PostDetails extends Component {
 
+  state ={
+    pageNotFound:false
+  }
+
   componentDidMount() {
     const postId = this.props.match.params.id;
     this.props.fetchPost(postId);
     this.props.getComments(postId);
   }
 
+  componentWillReceiveProps(){
+    if (!this.props.post){
+      this.setState({pageNotFound:true});
+    }
+  }
+
   render(){
     const {post,comments}=this.props;
+    const {pageNotFound}=this.state;
     return(
       <div className="post-details">
         {
@@ -33,6 +45,10 @@ class PostDetails extends Component {
           <CommentCard key={index}
             id={comment.id}
           />)
+        }
+        {
+          pageNotFound &&
+          <Redirect to="/404" />
         }
       </div>
     );

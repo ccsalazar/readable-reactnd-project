@@ -55,12 +55,16 @@ state={
           </div>
           <div className="post-card__controls">
             <Link to={`/posts/${id}/edit`}>
-              <MdEdit className="MdEdit"/>Edit
+              <MdEdit className="MdEdit"/>
             </Link>
           </div>
         </div>
         <div className="post-card__title">
-          {title}
+          <Link
+            className="title-link"
+            to={`/${category}/${id}`}>
+            {title}
+          </Link>
         </div>
         <div className="post-card__body">
           {body}
@@ -93,7 +97,7 @@ Card.propTypes = {
   dispatch:PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({posts,comments},ownProps) =>{
+const mapStateToProps = ({posts},ownProps) =>{
   return{
     post:posts[ownProps.id]
   }

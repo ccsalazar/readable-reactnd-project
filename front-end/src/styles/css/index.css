@@ -154,6 +154,9 @@ body {
     visibility: visible;
     transition: all .2s ease-in; }
 
+.title-link {
+  color: #ff5252; }
+
 .category-tabs {
   margin: 1rem auto;
   width: 60%;
@@ -288,6 +291,11 @@ body {
 
 .default-post {
   margin: 0 3rem; }
+
+.center-content {
+  margin: 5rem auto;
+  width: 50%;
+  text-align: center; }
 
 .post-details {
   margin: 0 3rem; }

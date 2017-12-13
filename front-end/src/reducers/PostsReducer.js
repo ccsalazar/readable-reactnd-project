@@ -22,15 +22,14 @@ export default (state={},action)=>{
     }
     case GET_POSTS:
       const newPosts = posts.reduce((byId,post)=>{
-        return {...byId,[post.id]:post}
+          return {...byId,[post.id]:post}
       },{})
       return {
-        ...state,
         ...newPosts
       }
     case GET_POSTS_BY_CATEGORY:
       const newPostsByCategory = posts.reduce((byId,post)=>{
-        return {...byId,[post.id]:post}
+          return {...byId,[post.id]:post}
       },{})
       return {
         ...newPostsByCategory
