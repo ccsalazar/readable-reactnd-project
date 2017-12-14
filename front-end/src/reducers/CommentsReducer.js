@@ -5,7 +5,7 @@ import{
   UPVOTE_COMMENT,
   DOWNVOTE_COMMENT,
   DELETE_COMMENT
-} from '../actions/comments'
+} from '../actions/types'
 
 
 export default (state={},action)=>{

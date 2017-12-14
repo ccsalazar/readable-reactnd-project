@@ -8,13 +8,15 @@ import{
   DELETE_POST,
   GET_POSTS_BY_CATEGORY,
   SORT_POSTS
-} from '../actions/posts'
+} from '../actions/types'
 
 
 export default (state={},action)=>{
 
   const {posts}=action;
   switch(action.type){
+    case "persist/REHYDRATE":
+      return action.payload.posts;
     case GET_POST:
     return{
       ...state,

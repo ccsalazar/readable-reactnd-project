@@ -1,17 +1,17 @@
 import * as ServerAPIUtil from '../utils/api';
 import {deleteComment} from './comments';
 
-//TYPES
-export const GET_POST="GET_POST"
-export const GET_POSTS="GET_POSTS"
-export const GET_POSTS_BY_CATEGORY="GET_POSTS_BY_CATEGORY"
-export const ADD_POST="ADD_POST"
-export const EDIT_POST="EDIT_POST"
-export const UPVOTE_POST="UPVOTE_POST"
-export const DOWNVOTE_POST="DOWNVOTE_POST"
-export const DELETE_POST="DELETE_POST"
-export const SORT_POSTS="SORT_POSTS"
-
+import{
+  GET_POST,
+  GET_POSTS,
+  ADD_POST,
+  EDIT_POST,
+  UPVOTE_POST,
+  DOWNVOTE_POST,
+  DELETE_POST,
+  GET_POSTS_BY_CATEGORY,
+  SORT_POSTS
+} from './types'
 
 //ACTION CREATORS
 export const receivePost = posts => ({

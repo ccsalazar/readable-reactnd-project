@@ -1,5 +1,8 @@
 import {sortPosts} from './posts';
-export const SET_FILTER="SET_FILTER"
+
+import {
+  SET_FILTER
+} from './types'
 
 export const setFilter = filter => ({
   type:SET_FILTER,

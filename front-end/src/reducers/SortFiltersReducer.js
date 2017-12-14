@@ -1,7 +1,7 @@
 
 import{
   SET_FILTER
-} from '../actions/index'
+} from '../actions/types'
 
 
 export default (state={},action)=>{

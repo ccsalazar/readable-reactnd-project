@@ -1,12 +1,14 @@
 import * as ServerAPIUtil from '../utils/api';
 import {fetchPost} from './posts';
 
-export const GET_COMMENTS="GET_COMMENTS"
-export const ADD_COMMENTS="ADD_COMMENTS"
-export const EDIT_COMMENTS="EDIT_COMMENTS"
-export const UPVOTE_COMMENT="UPVOTE_COMMENT"
-export const DOWNVOTE_COMMENT="DOWNVOTE_COMMENT"
-export const DELETE_COMMENT="DELETE_COMMENT"
+import{
+  GET_COMMENTS,
+  ADD_COMMENTS,
+  EDIT_COMMENTS,
+  UPVOTE_COMMENT,
+  DOWNVOTE_COMMENT,
+  DELETE_COMMENT
+} from './types'
 
 
 export const receiveComments = comments => ({
