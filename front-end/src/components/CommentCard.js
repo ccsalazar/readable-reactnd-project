@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {deleteComment} from '../actions/comments';
 import {fetchPost} from '../actions/posts';
 import VoteScore from './VoteScore';
+import {DateStamp} from '../utils/helpers';
 
 class CommentCard extends Component {
 
@@ -57,15 +58,7 @@ class CommentCard extends Component {
   render(){
     const {editButton,comment}=this.state
     const{timestamp,author,id,body,voteScore}=this.props.comment;
-
-    let timeStamp = new Date(timestamp);
-    let dateString = timeStamp.toDateString();
-    let hours = timeStamp.getHours();
-    let minutes =timeStamp.getMinutes();
-    let meridiem = hours<12?'AM':'PM';
-    hours = hours===0?hours+=12:hours;
-    hours = hours>12?hours-=12:hours;
-    minutes = ('0'+minutes).slice(-2);
+    const {dateString,hours,minutes,meridiem}=DateStamp(timestamp);
 
     let postBody=null;
     if (editButton){
