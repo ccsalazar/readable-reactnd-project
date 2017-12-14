@@ -19,3 +19,6 @@ export const DELETE_COMMENT="DELETE_COMMENT"
 
 //SORT TYPES
 export const SET_FILTER="SET_FILTER"
+
+//REDUX-PERSIST TYPES
+export const REHYDRATE = "persist/REHYDRATE"

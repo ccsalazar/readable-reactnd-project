@@ -4,13 +4,16 @@ import{
   EDIT_COMMENTS,
   UPVOTE_COMMENT,
   DOWNVOTE_COMMENT,
-  DELETE_COMMENT
+  DELETE_COMMENT,
+  REHYDRATE
 } from '../actions/types'
 
 
 export default (state={},action)=>{
   const {comments}=action;
   switch(action.type){
+    case REHYDRATE:
+      return action.payload.comments;
     case GET_COMMENTS:
       const newComments = comments.reduce((byId,comment)=>{
         return {...byId,[comment.id]:comment}
