@@ -25,7 +25,7 @@ class CreatePost extends Component {
     const postIdValid = this.props.match.params.id?this.props.match.params.id:null;
     const mode = postIdValid?'edit':'create';
     if (mode==='edit'){
-      this.props.fetchPost(postIdValid);
+      this.props.fetchPost(postIdValid)
     }
     this.setState({mode});
   }
@@ -37,11 +37,11 @@ class CreatePost extends Component {
       const {author,title,category,body,id} = nextProps.posts[postIdValid];
       this.setState({
         post:{
-          author:author,
-          title:title,
-          category:category,
-          body:body,
-          id:id
+          author,
+          title,
+          category,
+          body,
+          id
         }
       });
     }
