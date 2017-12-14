@@ -33,9 +33,9 @@ handleVoting (vote,e){
 }
 
 VoteScore.propTypes = {
-  id:PropTypes.string.isRequired,
+  id:PropTypes.string,
   voteItem:PropTypes.string.isRequired,
-  voteScore:PropTypes.number.isRequired,
+  voteScore:PropTypes.number,
   dispatch:PropTypes.func.isRequired
 }
 

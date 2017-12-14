@@ -32,12 +32,16 @@ class PostDetails extends Component {
     return(
       <div className="post-details">
         {
-          post!== undefined &&
-            <Card id={post.id}/>
+          pageNotFound &&
+          <Redirect to="/404" />
         }
         {
-          post!== undefined&&
-            <AddComment id={post.id}/>
+          post!==undefined &&
+          <Card id={post.id}/>
+        }
+        {
+          post!==undefined &&
+          <AddComment id={post.id}/>
         }
         {
           comments!== undefined &&
@@ -45,10 +49,6 @@ class PostDetails extends Component {
           <CommentCard key={index}
             id={comment.id}
           />)
-        }
-        {
-          pageNotFound &&
-          <Redirect to="/404" />
         }
       </div>
     );
