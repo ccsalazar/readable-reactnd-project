@@ -91,13 +91,15 @@ export const editPost = (post)=> dispatch =>(
     .then(data => dispatch(receiveEditPost(data)))
 );
 
-export const voteOnPost = (id,item,vote)=> dispatch =>(
+export const voteOnPost = (id,item,vote)=> (dispatch,getState) =>{
+  const {sort}=getState();
   ServerAPIUtil
     .voteItem(id,item,vote)
-    .then(data =>vote==='upVote'?
-    dispatch(upVotePost(data)):dispatch(downVotePost(data))
-  )
-);
+    .then(data =>{
+      vote==='upVote'?dispatch(upVotePost(data)):dispatch(downVotePost(data))
+      dispatch(sortPosts(sort.filter))
+    })
+};
 
 //DELETE POST AND ALL CHILD COMMENTS
 export const deletePostAndComments = (id)=> dispatch =>{

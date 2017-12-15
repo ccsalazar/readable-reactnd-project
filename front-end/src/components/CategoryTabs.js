@@ -29,7 +29,7 @@ class CategoryTabs extends Component {
             <NavLink
               className="category__non-active"
               activeClassName="category__active"
-              to="/react/posts"
+              to="/react"
               onClick={this.handleFetchPost.bind(this,'react')}
             >
               React
@@ -37,7 +37,7 @@ class CategoryTabs extends Component {
             <NavLink
               className="category__non-active"
               activeClassName="category__active"
-              to="/redux/posts"
+              to="/redux"
               onClick={this.handleFetchPost.bind(this,'redux')}
             >
               Redux
@@ -45,7 +45,7 @@ class CategoryTabs extends Component {
             <NavLink
               className="category__non-active"
               activeClassName="category__active"
-              to="/udacity/posts"
+              to="/udacity"
               onClick={this.handleFetchPost.bind(this,'udacity')}
             >
               Udacity
