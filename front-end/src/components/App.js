@@ -15,11 +15,11 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={DefaultPost}/>
-          <Route exact path="/:category" component={DefaultPost}/>
           <Route exact path="/posts/:id/edit" component={CreatePost}/>
           <Route exact path="/create" component={CreatePost}/>
-          <Route path="/:category/:id" component={PostDetails}/>
           <Route exact path="/404" component={PageNotFound} />
+          <Route path="/:category/:id" component={PostDetails}/>
+          <Route path="/:category" component={DefaultPost}/>
           <Redirect from="*" to="/404"/>
         </Switch>
       </div>
