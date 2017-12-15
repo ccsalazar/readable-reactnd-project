@@ -25,7 +25,7 @@ const configureStore = createStore(
 
 const createAppStore = () => {
   let store = configureStore;
-  let persistor = persistStore(store)
+  let persistor = persistStore(store);
 
   return {persistor,store}
 }

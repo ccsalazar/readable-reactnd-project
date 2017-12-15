@@ -10,7 +10,8 @@ export default (state={},action)=>{
   const {filter}=action;
   switch(action.type){
     case REHYDRATE:
-      return action.payload.sort;
+    const saveData = action.payload?action.payload.sort:state
+      return saveData;
     case SET_FILTER:
       return {
         filter

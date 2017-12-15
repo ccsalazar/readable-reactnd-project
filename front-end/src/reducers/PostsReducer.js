@@ -17,7 +17,8 @@ export default (state={},action)=>{
   const {posts}=action;
   switch(action.type){
     case REHYDRATE:
-      return action.payload.posts;
+    const saveData = action.payload?action.payload.posts:state;
+      return saveData;
     case GET_POST:
     return{
       ...state,
