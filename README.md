@@ -14,7 +14,7 @@ To install and start the API server, cd into the api-server directory and run th
 
 `npm install` or `yarn`
 
-once the dependencies have been installed, go ahead and run the server with the follow command:
+once the dependencies have been installed, go ahead and run the server with the following command:
 
 `node server`
 
