@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const config = require('./config')
+const path = require('path');
 const categories = require('./categories')
 const posts = require('./posts')
 const comments = require('./comments')
