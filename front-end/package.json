@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
+  "author": "Carlos Salazar",
   "dependencies": {
     "axios": "^0.17.1",
     "prop-types": "^15.6.0",

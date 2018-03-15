@@ -9,6 +9,9 @@
     "readable",
     "react"
   ],
+  "scripts": {
+    "heroku-postbuild": "cd front-end && yarn --production=false && yarn run build"
+  },
   "author": "David Harris",
   "license": "ISC",
   "dependencies": {
