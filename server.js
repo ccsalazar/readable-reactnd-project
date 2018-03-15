@@ -11,7 +11,8 @@ const comments = require('./comments')
 
 const app = express()
 
-app.use(express.static('public'))
+// app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'front-end/build')));
 app.use(cors())
 
 
@@ -313,6 +314,4 @@ app.delete('/comments/:id', (req, res) => {
       )
 })
 
-app.listen(config.port, () => {
-  console.log('Server listening on port %s, Ctrl+C to stop', config.port)
-})
+app.listen(config.port)

@@ -10,9 +10,10 @@
     "react"
   ],
   "scripts": {
+    "start": "node server.js",
     "heroku-postbuild": "cd front-end && yarn --production=false && yarn run build"
   },
-  "author": "David Harris",
+  "author": "David Harris(server-side) & Carlos Salazar (client-side)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
