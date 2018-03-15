@@ -20,8 +20,8 @@ class DefaultPost extends Component {
     const {postsIds}=this.props;
     return(
       <section className="default-post">
-          <Link to="/create">
-          <div className="page-width">
+          <Link className="page-width" to="/create">
+          <div>
             <button className="btn__new-post btn">
               Create New Post
             </button>

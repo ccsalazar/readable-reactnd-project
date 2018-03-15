@@ -1,10 +1,14 @@
 .category-tabs{
-  margin:1rem auto;
-  width:$page-content-width;
+  width:95%;
+  max-width:70rem;
   font-size: 1.5rem;
   font-weight: 500;
-  // line-height: 4rem;
-  @include clearfix;
+  align-self: center;
+  line-height: 4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
 }
 .category {
 
@@ -25,13 +29,13 @@
     width:6rem;
     text-align: center;
     border-bottom:.3rem solid $color-blue;
-    // color:$color-primary-orange;
     display:inline-block;
   }
 }
 
 .page-width{
-  width:$page-content-width;
-  margin:2rem auto;
-
+  width:95%;
+  max-width:70rem;
+  align-self: center;
+  margin: 1.5rem 0;
 }

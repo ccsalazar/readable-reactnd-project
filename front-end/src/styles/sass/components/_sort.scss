@@ -1,12 +1,13 @@
 .sort{
-  display:inline-block;
+  // display:inline-block;
   float:right;
   &-menu {
     font-size: 1.5rem;
     font-family: inherit;
     color:$color-white;
-    background-color: transparent;
-    border-radius: 1.5rem;
+    background-color: $color-black-background;
+    border-radius: 1rem;
     outline:none;
+    padding: .5rem 1rem;
   }
 }

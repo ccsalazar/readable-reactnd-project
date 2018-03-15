@@ -99,12 +99,14 @@ body {
     outline: none; }
 
 .post-card {
-  margin: 1rem auto;
-  width: 60%;
+  width: 95%;
+  max-width: 70rem;
+  align-self: center;
   padding: 1rem;
   border-radius: .5rem;
   background-color: #2e2d2b;
-  color: #fff; }
+  color: #fff;
+  margin-bottom: 1.5rem; }
   .post-card__category {
     border-bottom: 1px solid #777777; }
   .post-card__details {
@@ -158,13 +160,16 @@ body {
   color: #ff5252; }
 
 .category-tabs {
-  margin: 1rem auto;
-  width: 60%;
+  width: 95%;
+  max-width: 70rem;
   font-size: 1.5rem;
   font-weight: 500;
-  content: "";
-  display: table;
-  clear: both; }
+  align-self: center;
+  line-height: 4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse; }
 
 .category__non-active {
   width: 6rem;
@@ -185,8 +190,10 @@ body {
   display: inline-block; }
 
 .page-width {
-  width: 60%;
-  margin: 2rem auto; }
+  width: 95%;
+  max-width: 70rem;
+  align-self: center;
+  margin: 1.5rem 0; }
 
 .form__group:not(:last-child) {
   margin-bottom: 1rem; }
@@ -271,15 +278,15 @@ body {
   margin-bottom: 2rem; }
 
 .sort {
-  display: inline-block;
   float: right; }
   .sort-menu {
     font-size: 1.5rem;
     font-family: inherit;
     color: #fff;
-    background-color: transparent;
-    border-radius: 1.5rem;
-    outline: none; }
+    background-color: #222;
+    border-radius: 1rem;
+    outline: none;
+    padding: .5rem 1rem; }
 
 .header {
   height: 6.4rem;
@@ -290,7 +297,8 @@ body {
     color: #fff; }
 
 .default-post {
-  margin: 0 3rem; }
+  display: flex;
+  flex-direction: column; }
 
 .center-content {
   margin: 5rem auto;

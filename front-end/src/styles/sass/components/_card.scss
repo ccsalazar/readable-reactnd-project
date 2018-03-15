@@ -1,10 +1,12 @@
 .post-card {
-  margin:1rem auto;
-  width:$page-content-width;
+  width:95%;
+  max-width:70rem;
+  align-self: center;
   padding:1rem;
   border-radius: .5rem;
   background-color: #2e2d2b;
   color:$color-white;
+  margin-bottom: 1.5rem;
 
   &__category {
     border-bottom: 1px solid $color-grey-light;

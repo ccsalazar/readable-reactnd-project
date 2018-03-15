@@ -18,38 +18,41 @@ class CategoryTabs extends Component {
   render(){
     return (
         <div className="category-tabs">
-            <NavLink
-              className="category__non-active"
-              activeClassName="category__active"
-              exact to="/"
-              onClick={this.handleFetchPost.bind(this,'all')}
-            >
-              All
-            </NavLink>
-            <NavLink
-              className="category__non-active"
-              activeClassName="category__active"
-              to="/react"
-              onClick={this.handleFetchPost.bind(this,'react')}
-            >
-              React
-            </NavLink>
-            <NavLink
-              className="category__non-active"
-              activeClassName="category__active"
-              to="/redux"
-              onClick={this.handleFetchPost.bind(this,'redux')}
-            >
-              Redux
-            </NavLink>
-            <NavLink
-              className="category__non-active"
-              activeClassName="category__active"
-              to="/udacity"
-              onClick={this.handleFetchPost.bind(this,'udacity')}
-            >
-              Udacity
-            </NavLink>
+        <div className="tabs">
+          <NavLink
+            className="category__non-active"
+            activeClassName="category__active"
+            exact to="/"
+            onClick={this.handleFetchPost.bind(this,'all')}
+          >
+            All
+          </NavLink>
+          <NavLink
+            className="category__non-active"
+            activeClassName="category__active"
+            to="/react"
+            onClick={this.handleFetchPost.bind(this,'react')}
+          >
+            React
+          </NavLink>
+          <NavLink
+            className="category__non-active"
+            activeClassName="category__active"
+            to="/redux"
+            onClick={this.handleFetchPost.bind(this,'redux')}
+          >
+            Redux
+          </NavLink>
+          <NavLink
+            className="category__non-active"
+            activeClassName="category__active"
+            to="/udacity"
+            onClick={this.handleFetchPost.bind(this,'udacity')}
+          >
+            Udacity
+          </NavLink>
+        </div>
+            
             <SortSelect />
         </div>
     );
