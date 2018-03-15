@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass": "node-sass src/styles/sass/main.scss src/styles/css/index.css"
+    "sass": "node-sass src/styles/sass/main.scss src/styles/css/index.css",
+    "watch-sass": "node-sass src/styles/sass/main.scss src/styles/css/index.css --watch"
   },
   "devDependencies": {
     "node-sass": "^4.6.1"
