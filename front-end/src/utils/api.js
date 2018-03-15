@@ -7,44 +7,44 @@ const headers = {
     'Authorization': 'whatever-you-want'
   }
 };
-const domain = 'http://localhost:3001';
+// const domain = 'http://localhost:3001';
 
 //GET REQUEST
 export const getALLPosts = () =>{
-  const url = `${domain}/posts`;
+  const url = `/posts`;
   return axios.get(url,headers)
     .catch(error=>console.log('ERROR:',error))
     .then(response=>response.data);
   }
 
 export const getPostsByCategory = (category) => {
-  const url = `${domain}/${category}/posts`;
+  const url = `/${category}/posts`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
 export const getPostsById = (id) => {
-  const url = `${domain}/posts/${id}`;
+  const url = `/posts/${id}`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
 export const getCommentsByPostID = (id) => {
-  const url = `${domain}/posts/${id}/comments`;
+  const url = `/posts/${id}/comments`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
 
 export const getCommentDetails = (id) => {
-  const url = `${domain}/comments/${id}`;
+  const url = `/comments/${id}`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>console.log('Axios Here',response.data));
 }
 
 export const getCategories = (category) => {
-  const url = `${domain}/categories`;
+  const url = `/categories`;
   return axios.get(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>console.log('Axios Here',response.data));
@@ -54,7 +54,7 @@ export const getCategories = (category) => {
 //POST REQUEST
 
 export const addNewPost = (data) => {
-  const url = `${domain}/posts`;
+  const url = `/posts`;
   data = {
     ...data,
     id:uuid(),
@@ -65,7 +65,7 @@ export const addNewPost = (data) => {
       .then(response=>response.data);
 }
 export const addNewComment = (data) => {
-  const url = `${domain}/comments`;
+  const url = `/comments`;
   data = {
     ...data,
     id:uuid(),
@@ -77,7 +77,7 @@ export const addNewComment = (data) => {
 }
 
 export const voteItem = (id,item,vote) => {
-  const url = `${domain}/${item}/${id}`;
+  const url = `/${item}/${id}`;
   const data={
     option:vote
   }
@@ -89,7 +89,7 @@ export const voteItem = (id,item,vote) => {
 
 //PUT REQUEST
 export const editPost = (data) => {
-  const url = `${domain}/posts/${data.id}`;
+  const url = `/posts/${data.id}`;
   data = {
     title:data.title,
     body:data.body
@@ -99,7 +99,7 @@ export const editPost = (data) => {
       .then(response=>response.data);
 }
 export const editComment = (data) => {
-  const url = `${domain}/comments/${data.id}`;
+  const url = `/comments/${data.id}`;
   data = {
     id:data.id,
     timestamp:Date.now(),
@@ -113,13 +113,13 @@ export const editComment = (data) => {
 
 //DELETE REQUEST
 export const deletePost = (id) => {
-  const url = `${domain}/posts/${id}`;
+  const url = `/posts/${id}`;
   return axios.delete(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
 }
 export const deleteComment = (id) => {
-  const url = `${domain}/comments/${id}`;
+  const url = `/comments/${id}`;
   return axios.delete(url,headers)
       .catch(error=>console.log('ERROR:',error))
       .then(response=>response.data);
