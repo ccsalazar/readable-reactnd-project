@@ -7,6 +7,8 @@
   background-color: #2e2d2b;
   color:$color-white;
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 
   &__category {
     border-bottom: 1px solid $color-grey-light;
@@ -15,17 +17,17 @@
   &__details {
    margin: 1rem 0;
    width: 100%;
-   @include clearfix;
+  //  display: flex;
+  //  @include clearfix;
   }
 
   &__user {
-    display:inline-block;
-    float:left;
+    display:flex;
   }
 
   &__user-log {
-    display:inline-block;
-    float:right;
+    display:flex;
+    flex-direction: column;
   }
 
   &__timestamp {

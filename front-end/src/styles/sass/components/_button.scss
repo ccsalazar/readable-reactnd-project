@@ -3,8 +3,9 @@
   font-size:1.5rem;
   font-family: inherit;
   background:transparent;
-  color:$color-grey-light;
+  color:$color-white;
   border-radius: 10px;
+  border-style: solid;
   padding:.5rem 1rem;
   transition: all .2s;
   &:hover {

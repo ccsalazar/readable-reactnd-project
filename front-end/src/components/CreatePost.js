@@ -77,7 +77,7 @@ class CreatePost extends Component {
     const pageMode = mode==='edit'?'Edit':'Create';
     return(
       <div className="post-form">
-        <h1 className="page-mode">{pageMode} Post</h1>
+        {/* <h1 className="page-mode">{pageMode} Post</h1> */}
         {
           submitError &&
           <div className="error__msg">
@@ -87,6 +87,7 @@ class CreatePost extends Component {
         <form
           className="form"
           onSubmit={this.handleSubmit.bind(this)}>
+          <h1 className="page-mode">{pageMode} Post</h1>
           <div className="form__group">
             <input
               id="author"
